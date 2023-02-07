@@ -1,7 +1,32 @@
 .root {
-
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 15%;
+    min-width: 150px;
+    border: 1px solid var(--shadow-color);
+    border-radius: 2vh;
+    box-shadow: 0 0 1vh var(--shadow-color);
+    margin: 1vh;
+    padding: 1px;
+    box-sizing: border-box;
 }
 
 .image {
+    width: 85%;
+}
 
+.about {
+    width: 90%;
+}
+
+.bold {
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.mute {
+    color: var(--font-main-color);
+    font-size: 18px;
+    font-weight: 300;
 }

@@ -12,12 +12,12 @@ interface ProductCardProps {
 const ProductCard = ({name, price, count, image}: ProductCardProps) => {
     return (
         <div className={styles.root}>
-            <img className={styles.image} src={image}/>
-            <p>
-                <b>{price} ₽</b>
-                / {count} шт.
-            </p>
-            <p>{name}</p>
+            <img className={styles.image} src={image} alt={name}/>
+            <div className={styles.about}>
+                <span className={styles.bold}>{price} ₽</span>
+                <span className={styles.mute}>/ {count} шт</span>
+                <p>{name}</p>
+            </div>
             <MainButton>
                 Купить
             </MainButton>

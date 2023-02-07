@@ -1,0 +1,7 @@
+.catalog {
+    display: flex;
+    width: 80%;
+    margin: 2vw auto;
+    flex-wrap: wrap;
+    justify-content: start;
+}

@@ -7,7 +7,7 @@
 }
 
 .logo {
-    margin-left: 2vw;
+    margin-left: 2rem;
     color: var(--main-color);
     font-weight: 500;
     font-size: 19px;
@@ -20,5 +20,5 @@
     color: var(--main-color);
     font-weight: 500;
     font-size: 16px;
-    margin: 1vw ;
+    margin: 0 1rem ;
 }

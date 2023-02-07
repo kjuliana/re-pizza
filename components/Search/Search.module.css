@@ -1,13 +1,13 @@
 .root {
     background: rgba(0, 0, 0, 0.05);
-    border-radius: 2vh;
+    border-radius: 14px;
     padding: 5px;
-    width: 35vw;
+    width: 30%;
     margin: auto;
-    height: 6vh;
+    height: 75%;
     border: none;
     font-weight: 300;
-    font-size: 2vh;
+    font-size: 1rem;
     line-height: 24px;
     text-decoration: none;
     color: var(--font-main-color);
@@ -17,7 +17,7 @@
     font-family: system-ui;
     font-style: normal;
     font-weight: 300;
-    font-size: 2vh;
+    font-size: 1.2rem;
     text-align: center;
     color: var(--font-mute-color);
 }

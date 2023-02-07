@@ -3,11 +3,26 @@
     justify-content: space-between;
     align-items: center;
     height: 8%;
-    border-bottom: 1px solid;
-    padding: 0 2%;
+    border-bottom: 1px solid var(--shadow-color);
 }
 
 .logo {
+    margin-left: 2vw;
     color: var(--main-color);
+    font-family: system-ui;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 19px;
+    text-decoration: none;
+}
 
+.button {
+    border: none;
+    background: none;
+    color: var(--main-color);
+    font-family: system-ui;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    margin: 1vw ;
 }

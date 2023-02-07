@@ -5,9 +5,9 @@
     max-width: 15%;
     min-width: 150px;
     border: 1px solid var(--shadow-color);
-    border-radius: 2vh;
-    box-shadow: 0 0 1vh var(--shadow-color);
-    margin: 1vh;
+    border-radius: 16px;
+    box-shadow: 0 0 5px var(--shadow-color);
+    margin: 8px;
     padding: 1px;
     box-sizing: border-box;
 }

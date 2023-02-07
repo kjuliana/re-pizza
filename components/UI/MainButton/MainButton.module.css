@@ -1,6 +1,6 @@
 .root {
     background: linear-gradient(92.68deg, var(--accent-color) -2.23%, var(--accent-color-gradient) 102.98%);
-    border-radius: 2vh;
+    border-radius: 14px;
     border: none;
     height: 40px;
     width: 100%;

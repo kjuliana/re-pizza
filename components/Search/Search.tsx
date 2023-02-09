@@ -3,7 +3,7 @@ import styles from './Search.module.css';
 
 const Search = () => {
     return (
-        <input placeholder='Search' type='search' className={styles.root}/>
+        <input placeholder='Поиск' type='search' className={styles.root}/>
     );
 };
 

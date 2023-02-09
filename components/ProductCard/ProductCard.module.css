@@ -23,12 +23,12 @@
     width: 90%;
 }
 
-.bold {
+.price {
     font-weight: 500;
     font-size: 20px;
 }
 
-.mute {
+.unit {
     color: var(--font-main-color);
     font-size: 18px;
     font-weight: 300;

@@ -15,8 +15,8 @@ const ProductCard = ({name, price, count, image}: ProductCardProps) => {
             <div className={styles.content}>
                 <img className={styles.image} src={image} alt={name}/>
                 <div className={styles.about}>
-                    <span className={styles.bold}>{price} ₽</span>
-                    <span className={styles.mute}>/ {count} шт</span>
+                    <span className={styles.price}>{price} ₽</span>
+                    <span className={styles.unit}>/ {count} шт</span>
                     <p>{name}</p>
                 </div>
             </div>

@@ -3,9 +3,8 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    border: 1px solid var(--shadow-color);
     border-radius: 16px;
-    box-shadow: 0 0 5px var(--shadow-color);
+    box-shadow: 1px 1px 6px var(--shadow-color);
     padding: 1px;
     box-sizing: border-box;
 }

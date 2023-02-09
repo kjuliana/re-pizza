@@ -3,6 +3,10 @@
     font-style: normal;
 }
 
+body {
+    margin: 0;
+}
+
 :root {
     --accent-color: #F7742A;
     --accent-color-gradient: #FFAD33;

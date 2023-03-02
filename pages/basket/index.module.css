@@ -1,6 +1,7 @@
 .root {
     display: flex;
     justify-content: space-between;
+    min-height: 100vh;
 }
 
 .basketList {
@@ -8,5 +9,7 @@
 }
 
 .orderWrapper {
-    widht: 40%;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
 }

@@ -1,0 +1,12 @@
+.root {
+    display: flex;
+    justify-content: space-between;
+}
+
+.basketList {
+    width: 50%;
+}
+
+.orderWrapper {
+    widht: 40%;
+}

@@ -5,7 +5,7 @@ const BASKET_KEY = 'basket';
 
 type BasketState = IBasket;
 
-const initialState: BasketState = typeof window !== "undefined" ? JSON.parse(window.localStorage.getItem(BASKET_KEY) ?? '{}') : {};
+const initialState: BasketState = {};
 
 export const basketSlice = createSlice({
     name: 'basket',
@@ -22,6 +22,12 @@ export const basketSlice = createSlice({
             state[action.payload] -= 1;
             state[action.payload] === 0 && delete state[action.payload];
             localStorage.setItem(BASKET_KEY, JSON.stringify(state));
+        },
+        restore(state) {
+            const restored = JSON.parse(window.localStorage.getItem(BASKET_KEY) ?? 'null');
+            if (restored) {
+                Object.assign(state,  restored);
+            }
         }
     }
 })

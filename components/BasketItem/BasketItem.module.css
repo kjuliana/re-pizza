@@ -11,12 +11,13 @@
 .information {
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
     width: 40%;
+    min-width: 200px;
 }
 
 .options {
-    width: 30%;
+    width: 150px;
 }
 
 .image {

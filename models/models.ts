@@ -1,3 +1,16 @@
+export interface IProduct {
+    id: number,
+    name: string,
+    price: number,
+    count: number,
+    image: string,
+}
+
+export type IBasket = {
+    [productId: number]: number;
+}
+
+
 export interface IUser {
     login: string;
     id: number;

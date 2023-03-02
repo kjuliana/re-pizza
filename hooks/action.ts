@@ -1,9 +1,11 @@
 import {useDispatch} from "react-redux";
 import {bindActionCreators} from "redux";
 import {githubActions} from "../store/github/github.slice";
+import {basketActions} from "../store/basket.slice";
 
 const actions = {
-    ...githubActions
+    ...githubActions,
+    ...basketActions
 }
 
 export const useActions = () => {

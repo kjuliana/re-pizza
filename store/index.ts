@@ -2,11 +2,13 @@ import {configureStore} from "@reduxjs/toolkit";
 import {githubAPI} from "./github/github.api";
 import {setupListeners} from "@reduxjs/toolkit/query";
 import {githubReducer} from "./github/github.slice";
+import {basketReducer} from "./basket.slice";
 
 export const store = configureStore({
     reducer: {
         [githubAPI.reducerPath]: githubAPI.reducer,
-        github: githubReducer
+        github: githubReducer,
+        basket: basketReducer
     },
     middleware: getDefaultMiddleware => getDefaultMiddleware().concat(githubAPI.middleware)
 })

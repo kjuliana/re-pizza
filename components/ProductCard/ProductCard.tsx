@@ -1,15 +1,26 @@
 import React from 'react';
 import styles from './ProductCard.module.css';
 import MainButton from "../UI/MainButton/MainButton";
+import {useActions} from "../../hooks/action";
+import {useAppSelector} from "../../hooks/redux";
 
 interface ProductCardProps {
+    id: number
     name: string,
     price: number,
     count: number,
     image: string,
 }
 
-const ProductCard = ({name, price, count, image}: ProductCardProps) => {
+const ProductCard = ({id, name, price, count, image}: ProductCardProps) => {
+    const {addBasket, removeFromBasket} = useActions();
+    const {basket} = useAppSelector(state => state.basket);
+
+    const addToBasket = (event: React.MouseEvent<HTMLButtonElement>) => {
+        event.preventDefault();
+        addBasket(id);
+    }
+
     return (
         <div className={styles.root}>
             <div className={styles.content}>
@@ -20,7 +31,7 @@ const ProductCard = ({name, price, count, image}: ProductCardProps) => {
                     <p>{name}</p>
                 </div>
             </div>
-            <MainButton>
+            <MainButton onClick={addToBasket}>
                 Купить
             </MainButton>
         </div>

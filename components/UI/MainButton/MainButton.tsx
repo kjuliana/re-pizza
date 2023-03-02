@@ -2,12 +2,15 @@ import React from 'react';
 import styles from './MainButton.module.css';
 
 interface MainButtonProps {
-    children: React.ReactNode
+    children: React.ReactNode,
+    // onClick: () => string,
+    onClick(event: React.MouseEvent<HTMLButtonElement>)
 }
 
-const MainButton = ({children}: MainButtonProps) => {
+const MainButton = ({children, onClick}: MainButtonProps) => {
+
     return (
-        <button className={styles.root}>
+        <button onClick={onClick} className={styles.root}>
             {children}
         </button>
     );

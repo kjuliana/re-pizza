@@ -5,7 +5,6 @@ import {useAppSelector} from "../../hooks/redux";
 import styles from "./index.module.css";
 import CatalogList from "../../components/Catalog/Catalog";
 import {useBasketTotalCost} from "../../hooks/useBasketTotalCost";
-import {useBasketItemCount} from "../../hooks/useBasketItemCount";
 
 const Basket = () => {
     const {basket} = useAppSelector(state => state);
@@ -23,18 +22,30 @@ const Basket = () => {
                     ?
                         <div className={styles.root}>
                             <div className={styles.basketList}>
-                                <h1>Корзина</h1>
+                                <h2>Корзина</h2>
                                 {Object.entries(basket).map(([productId, count]) =>
                                     <BasketItem key={productId} id={Number(productId)} count={count}/>
                                 )}
                             </div>
                             <div className={styles.orderWrapper}>
                                 <h2>Итого</h2>
-                                <p>Доставка 30-40 минут</p>
-                                <p>Товары {cost} ₽</p>
-                                <p>Доставка {delivery} ₽</p>
-                                {delivery && <p>Бесплатная доставка от 1000 ₽</p>}
-                                <h3>К оплате {totalCost}</h3>
+                                <div className={styles.row}>
+                                    <div>Товары</div>
+                                    <div className={styles.price}>{cost} ₽</div>
+                                </div>
+                                <div className={styles.row}>
+                                    <div>
+                                        Доставка
+                                        {Boolean(delivery) &&
+                                        <div className={styles.unit}>Бесплатная доставка от 1000 ₽</div>
+                                        }
+                                    </div>
+                                    <div className={styles.price}>{delivery} ₽</div>
+                                </div>
+                                <div className={styles.row}>
+                                    <h2>К оплате</h2>
+                                    <h2>{totalCost} ₽</h2>
+                                </div>
                                 <button className='button'>Заказать</button>
                             </div>
                         </div>

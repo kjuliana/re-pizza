@@ -10,8 +10,11 @@ import {useBasketItemCount} from "../../hooks/useBasketItemCount";
 const Basket = () => {
     const {basket} = useAppSelector(state => state);
 
-    const totalPrice = useBasketTotalCost();
-    const totalCount = useBasketItemCount();
+    const cost = useBasketTotalCost();
+
+    const delivery = cost > 1000 ? 0 : 69;
+
+    const totalCost = cost + 69;
 
     return (
         <Layout>
@@ -26,12 +29,12 @@ const Basket = () => {
                                 )}
                             </div>
                             <div className={styles.orderWrapper}>
-                                <div>
-                                    Всего товаров: {totalCount}
-                                </div>
-                                <div>
-                                    Итого: {totalPrice}
-                                </div>
+                                <h2>Итого</h2>
+                                <p>Доставка 30-40 минут</p>
+                                <p>Товары {cost} ₽</p>
+                                <p>Доставка {delivery} ₽</p>
+                                {delivery && <p>Бесплатная доставка от 1000 ₽</p>}
+                                <h3>К оплате {totalCost}</h3>
                                 <button className='button'>Заказать</button>
                             </div>
                         </div>

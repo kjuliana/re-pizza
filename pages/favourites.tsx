@@ -11,15 +11,12 @@ const Favourites = () => {
         setFav(favourites);
     }, []);
 
+    if (fav.length === 0) {
+        return <Layout><p>Нет ничего</p></Layout>;
+    }
     return (
         <Layout>
-            {fav.length !== 0
-                ?
-                    <ul>
-                        {fav.map(f => <li key={f}>{f}</li>)}
-                    </ul>
-                : <p>Нет ничего</p>
-            }
+            {fav.map((url) => <li key={url}>{url}</li>)}
         </Layout>
     );
 };

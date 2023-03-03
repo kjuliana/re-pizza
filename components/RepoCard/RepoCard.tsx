@@ -8,20 +8,18 @@ const RepoCard = ({repo}: {repo: IRepo}) => {
 
     const {addFavourite, removeFavourite} = useGithubActions();
     const {favourites} = useAppSelector(state => state.github);
-
-    console.log(favourites);
-    const [isFav, setIsFav] = useState(favourites.includes(repo.html_url));
+    let isFav = favourites.includes(repo.html_url);
 
     const addToFavourite = (event: React.MouseEvent<HTMLButtonElement>) => {
         event.preventDefault();
         addFavourite(repo.html_url);
-        setIsFav(true);
+        isFav =true;
     }
 
     const removeFromFavourite = (event: React.MouseEvent<HTMLButtonElement>) => {
         event.preventDefault();
         removeFavourite(repo.html_url);
-        setIsFav(false);
+        isFav = false;
     }
 
 
@@ -32,8 +30,10 @@ const RepoCard = ({repo}: {repo: IRepo}) => {
                 <p>Forks: {repo.forks}</p>
                 <p>Watchers: {repo.watchers}</p>
             </a>
-            {!isFav && <button onClick={addToFavourite}>Добавить</button>}
-            {isFav && <button onClick={removeFromFavourite}>Удалить</button>}
+            {isFav
+                ? <button onClick={removeFromFavourite}>Удалить</button>
+                : <button onClick={addToFavourite}>Добавить</button>
+            }
         </div>
     );
 };

@@ -1,9 +1,9 @@
-.startButton {
+.buttonBuy {
     height: 40px;
     width: 100%;
 }
 
-.optionButton {
+.buttonChange {
     height: 100%;
     width: 25%;
 }

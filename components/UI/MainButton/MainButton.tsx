@@ -28,16 +28,16 @@ const MainButton = ({id}: MainButtonProps) => {
             {basket[id]
                 ?
                     <div className={styles.wrapper}>
-                        <button onClick={removeFromBasket} className={'button ' + styles.optionButton}>
+                        <button onClick={removeFromBasket} className={'button ' + styles.buttonChange}>
                             -
                         </button>
                         {basket[id]}
-                        <button onClick={addToBasket} className={'button ' + styles.optionButton}>
+                        <button onClick={addToBasket} className={'button ' + styles.buttonChange}>
                             +
                         </button>
                     </div>
                 :
-                    <button onClick={addToBasket} className={'button ' + styles.startButton}>
+                    <button onClick={addToBasket} className={'button ' + styles.buttonBuy}>
                         Купить
                     </button>
             }

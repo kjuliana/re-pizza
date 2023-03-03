@@ -1,0 +1,27 @@
+.root {
+    background: linear-gradient(to right, var(--accent-color), var(--accent-color-gradient));
+    border-radius: 14px;
+    border: none;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.root:hover {
+    box-shadow: 0 0 3px 0 var(--accent-color);
+    background: var(--accent-color-gradient) ;
+}
+
+.buttonBuy {
+    height: 40px;
+    width: 100%;
+}
+
+.buttonChange {
+    height: 100%;
+    width: 25%;
+}
+
+.divBasket {
+    padding: 10px;
+}

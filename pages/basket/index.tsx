@@ -6,6 +6,7 @@ import styles from "./index.module.css";
 import CatalogList from "../../components/Catalog/Catalog";
 import {useBasketTotalCost} from "../../hooks/useBasketTotalCost";
 import {useBasketItemCount} from "../../hooks/useBasketItemCount";
+import Button from "../../components/UI/Button/Button";
 
 const Basket = () => {
     const {basket} = useAppSelector(state => state);
@@ -32,7 +33,7 @@ const Basket = () => {
                                 <div>
                                     Итого: {totalPrice}
                                 </div>
-                                <button className='button'>Заказать</button>
+                                <Button tag='button' option='buttonBuy'>Заказать</Button>
                             </div>
                         </div>
                     : <h1>Корзина пуста</h1>

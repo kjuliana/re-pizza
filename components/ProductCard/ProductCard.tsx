@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './ProductCard.module.css';
-import MainButton from "../UI/MainButton/MainButton";
+import ProductCounter from "../ProductCounter/ProductCounter";
 
 interface ProductCardProps {
     id: number
@@ -21,7 +21,7 @@ const ProductCard = ({id, name, price, count, image}: ProductCardProps) => {
                     <p>{name}</p>
                 </div>
             </div>
-            <MainButton id={id}/>
+            <ProductCounter id={id}/>
         </div>
     );
 };

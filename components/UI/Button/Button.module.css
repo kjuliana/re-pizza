@@ -1,0 +1,18 @@
+.root {
+    background: linear-gradient(to right, var(--accent-color), var(--accent-color-gradient));
+    border-radius: 14px;
+    border: none;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    padding: 10px 16px;
+}
+
+.root:hover {
+    box-shadow: 0 0 3px 0 var(--accent-color);
+    background: var(--accent-color-gradient) ;
+}
+
+.rootWide {
+    width: 100%;
+}

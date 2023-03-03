@@ -17,7 +17,7 @@ const Header = () => {
             <Search/>
             <div className={styles.basketWrapper}>
                 <Link href="/basket" className={styles.link}>
-                    <Button tag={'div'}  option={'divBasket'}>
+                    <Button tag='div'>
                         {basketTotalCost} ₽ | 🛒 {+basketItemCount}
                     </Button>
                 </Link>

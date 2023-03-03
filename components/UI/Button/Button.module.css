@@ -5,6 +5,7 @@
     font-size: 16px;
     font-weight: 600;
     color: #fff;
+    padding: 10px 16px;
 }
 
 .root:hover {
@@ -12,16 +13,6 @@
     background: var(--accent-color-gradient) ;
 }
 
-.buttonBuy {
-    height: 40px;
+.rootWide {
     width: 100%;
-}
-
-.buttonChange {
-    height: 100%;
-    width: 25%;
-}
-
-.divBasket {
-    padding: 10px;
 }

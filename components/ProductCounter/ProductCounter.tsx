@@ -29,18 +29,12 @@ const ProductCounter = ({id}: MainButtonProps) => {
             {basket[id]
                 ?
                     <div className={styles.wrapper}>
-                        <Button onClick={removeFromBasket} tag={'button'} option={'buttonChange'}>
-                            -
-                        </Button>
+                        <Button onClick={removeFromBasket}>−</Button>
                         {basket[id]}
-                        <Button onClick={addToBasket} tag={'button'} option={'buttonChange'}>
-                            +
-                        </Button>
+                        <Button onClick={addToBasket}>+</Button>
                     </div>
                 :
-                    <Button onClick={addToBasket} tag={'button'} option={'buttonBuy'}>
-                        Купить
-                    </Button>
+                    <Button onClick={addToBasket} wide>Купить</Button>
             }
         </>
     );

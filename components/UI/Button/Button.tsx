@@ -3,15 +3,15 @@ import styles from "./Button.module.css";
 
 interface ButtonProps {
     children: React.ReactNode,
-    tag: 'button' | 'div',
+    tag?: 'button' | 'div',
     onClick?(event: React.MouseEvent): void,
-    option: string
+    wide?: boolean
 }
 
-const Button = ({children, tag, onClick, option}: ButtonProps) => {
+const Button = ({children, tag='button', onClick, wide}: ButtonProps) => {
 
     const Tag = tag;
-    const buttonClass = styles.root+' '+styles[option];
+    const buttonClass = wide ? styles.root+' '+styles.rootWide : styles.root;
 
     return (
         <Tag onClick={onClick} className={buttonClass}>

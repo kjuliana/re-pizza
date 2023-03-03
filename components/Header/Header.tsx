@@ -3,12 +3,12 @@ import styles from './Header.module.css';
 import Search from "../Search/Search";
 import Link from "next/link";
 import {useAppSelector} from "../../hooks/redux";
-import {useTotalPrice} from "../../hooks/totalPrice";
-import {useTotalCountProduct} from "../../hooks/totalCountProduct";
+import {useBasketTotalCost} from "../../hooks/useBasketTotalCost";
+import {useBasketItemCount} from "../../hooks/useBasketItemCount";
 
 const Header = () => {
-    const totalCount = useTotalCountProduct();
-    const totalPrice = useTotalPrice();
+    const basketItemCount = useBasketItemCount();
+    const basketTotalCost = useBasketTotalCost();
 
     return (
         <div className={styles.root}>
@@ -17,9 +17,9 @@ const Header = () => {
             <Search/>
             <div className={styles.basketWrapper}>
                 <Link href="/basket" className={styles.link}>
-                    <button className={'button '+styles.button}>
-                        {totalPrice} ₽ | 🛒 {+totalCount}
-                    </button>
+                    <div className={'button '+styles.button}>
+                        {basketTotalCost} ₽ | 🛒 {+basketItemCount}
+                    </div>
                 </Link>
             </div>
         </div>

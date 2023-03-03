@@ -4,14 +4,14 @@ import Layout from "../../components/Layout/Layout";
 import {useAppSelector} from "../../hooks/redux";
 import styles from "./index.module.css";
 import CatalogList from "../../components/Catalog/Catalog";
-import {useTotalPrice} from "../../hooks/totalPrice";
-import {useTotalCountProduct} from "../../hooks/totalCountProduct";
+import {useBasketTotalCost} from "../../hooks/useBasketTotalCost";
+import {useBasketItemCount} from "../../hooks/useBasketItemCount";
 
 const Basket = () => {
     const {basket} = useAppSelector(state => state);
 
-    const totalPrice = useTotalPrice();
-    const totalCount = useTotalCountProduct();
+    const totalPrice = useBasketTotalCost();
+    const totalCount = useBasketItemCount();
 
     return (
         <Layout>

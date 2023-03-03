@@ -8,18 +8,16 @@ const RepoCard = ({repo}: {repo: IRepo}) => {
 
     const {addFavourite, removeFavourite} = useGithubActions();
     const {favourites} = useAppSelector(state => state.github);
-    let isFav = favourites.includes(repo.html_url);
+    const isFav = favourites.includes(repo.html_url);
 
     const addToFavourite = (event: React.MouseEvent<HTMLButtonElement>) => {
         event.preventDefault();
         addFavourite(repo.html_url);
-        isFav =true;
     }
 
     const removeFromFavourite = (event: React.MouseEvent<HTMLButtonElement>) => {
         event.preventDefault();
         removeFavourite(repo.html_url);
-        isFav = false;
     }
 
 

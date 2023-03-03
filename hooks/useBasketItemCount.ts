@@ -1,6 +1,6 @@
 import {useAppSelector} from "./redux";
 
-export const useTotalCountProduct = () => {
+export const useBasketItemCount = () => {
     const basket = useAppSelector(state => state.basket);
 
     let basketCount = 0;

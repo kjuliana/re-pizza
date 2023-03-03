@@ -16,7 +16,9 @@ const Favourites = () => {
     }
     return (
         <Layout>
-            {fav.map((url) => <li key={url}>{url}</li>)}
+            <ul>
+                {fav.map((url) => <li key={url}>{url}</li>)}
+            </ul>
         </Layout>
     );
 };

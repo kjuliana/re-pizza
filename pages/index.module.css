@@ -1,0 +1,22 @@
+.input {
+    height: 42px;
+    padding: 2px 4px;
+    width: 100%;
+    margin-bottom: 2px;
+}
+
+.dropDown {
+    list-style: none;
+    position: absolute;
+    top: 42px;
+    left: 0;
+    right: 0;
+    max-height: 200px;
+    box-shadow: 2px 3px gray ;
+    background: #FFAD33;
+    overflow-y: scroll;
+}
+
+.inputWrapper {
+    position: relative;
+}

@@ -3,13 +3,14 @@ import styles from './ProductCard.module.css';
 import MainButton from "../UI/MainButton/MainButton";
 
 interface ProductCardProps {
+    id: number
     name: string,
     price: number,
     count: number,
     image: string,
 }
 
-const ProductCard = ({name, price, count, image}: ProductCardProps) => {
+const ProductCard = ({id, name, price, count, image}: ProductCardProps) => {
     return (
         <div className={styles.root}>
             <div className={styles.content}>
@@ -20,9 +21,7 @@ const ProductCard = ({name, price, count, image}: ProductCardProps) => {
                     <p>{name}</p>
                 </div>
             </div>
-            <MainButton>
-                Купить
-            </MainButton>
+            <MainButton id={id}/>
         </div>
     );
 };

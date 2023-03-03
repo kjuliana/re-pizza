@@ -14,11 +14,20 @@
     text-decoration: none;
 }
 
-.button {
-    border: none;
-    background: none;
+.link {
+    text-decoration: none;
     color: var(--main-color);
     font-weight: 500;
     font-size: 16px;
     margin: 0 1rem ;
+}
+
+.button {
+    padding: 10px;
+}
+
+.basketWrapper {
+    width: 25%;
+    display: flex;
+    justify-content: end;
 }

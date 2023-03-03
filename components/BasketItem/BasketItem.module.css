@@ -1,0 +1,30 @@
+.root {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 16px;
+    box-shadow: 1px 1px 6px var(--shadow-color);
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.information {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 40%;
+    min-width: 200px;
+}
+
+.options {
+    width: 150px;
+}
+
+.image {
+    width: 130px;
+}
+
+.price {
+    font-weight: 500;
+    font-size: 20px;
+}

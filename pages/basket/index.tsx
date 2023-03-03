@@ -33,7 +33,7 @@ const Basket = () => {
                                 <div>
                                     Итого: {totalPrice}
                                 </div>
-                                <Button tag='button' option='buttonBuy'>Заказать</Button>
+                                <Button tag='button'>Заказать</Button>
                             </div>
                         </div>
                     : <h1>Корзина пуста</h1>

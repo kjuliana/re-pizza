@@ -3,6 +3,7 @@ import styles from './Header.module.css';
 import Search from "../Search/Search";
 import Link from "next/link";
 import {useAppSelector} from "../../hooks/redux";
+import {useTotalCount} from "../../hooks/totalCount";
 
 const Header = () => {
     const basket = useAppSelector(state => state.basket);
@@ -13,12 +14,14 @@ const Header = () => {
         basketCount += basket[key];
     }
 
+    const totalCount = useTotalCount();
+
     return (
         <div className={styles.root}>
             <Link href="/" className={styles.logo}>Едамаркет</Link>
             <Link href="/catalog" className={styles.link}>Каталог</Link>
             <Search/>
-            <Link href="/basket" className={styles.link}>Корзина : {basketCount}</Link>
+            <Link href="/basket" className={styles.link}> Корзина {totalCount} {basketCount} </Link>
         </div>
     );
 };

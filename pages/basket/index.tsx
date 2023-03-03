@@ -4,9 +4,12 @@ import Layout from "../../components/Layout/Layout";
 import {useAppSelector} from "../../hooks/redux";
 import styles from "./index.module.css";
 import CatalogList from "../../components/Catalog/Catalog";
+import {useTotalCount} from "../../hooks/totalCount";
 
 const Basket = () => {
     const {basket} = useAppSelector(state => state);
+
+    const totalCount = useTotalCount();
 
     return (
         <Layout>
@@ -25,7 +28,7 @@ const Basket = () => {
                                     Всего товаров:
                                 </div>
                                 <div>
-                                    Итого:
+                                    Итого: {totalCount}
                                 </div>
                                 <button className='button'>Заказать</button>
                             </div>

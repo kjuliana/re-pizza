@@ -25,7 +25,6 @@ const Index = () => {
         setDropdown(false);
     }
 
-
     return (
         <Layout>
             <div className={styles.inputWrapper}>

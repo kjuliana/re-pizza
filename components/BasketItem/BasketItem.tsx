@@ -5,10 +5,10 @@ import MainButton from "../UI/MainButton/MainButton";
 
 interface BasketItemProps {
     id: number,
-    basketCount: number
+    count: number
 }
 
-const BasketItem = ({id, basketCount}: BasketItemProps) => {
+const BasketItem = ({id, count}: BasketItemProps) => {
     const catalog = useAppSelector(state => state.catalog);
 
     const [item, setItem] = useState({
@@ -16,6 +16,8 @@ const BasketItem = ({id, basketCount}: BasketItemProps) => {
         image: '',
         price: 0
     });
+
+    const sum = item.price*count;
 
     useEffect(() => {
         setItem(catalog.find(product => product.id === id))
@@ -30,7 +32,7 @@ const BasketItem = ({id, basketCount}: BasketItemProps) => {
             <div className={styles.options}>
                 <MainButton id={id}/>
             </div>
-            <span className={styles.price}>{item.price*basketCount} ₽</span>
+            <span className={styles.price}>{sum} ₽</span>
         </div>
     );
 };

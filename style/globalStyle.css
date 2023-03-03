@@ -17,7 +17,15 @@ body {
 }
 
 .button {
-    background: linear-gradient(92.68deg, var(--accent-color) -2.23%, var(--accent-color-gradient) 102.98%);
+    background: linear-gradient(to right, var(--accent-color), var(--accent-color-gradient));
     border-radius: 14px;
     border: none;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.button:hover {
+    box-shadow: 0 0 3px 0 var(--accent-color);
+    background: var(--accent-color-gradient) ;
 }

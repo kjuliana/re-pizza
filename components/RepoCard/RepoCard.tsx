@@ -6,19 +6,21 @@ import {useAppSelector} from "../../hooks/redux";
 
 const RepoCard = ({repo}: {repo: IRepo}) => {
 
-    const {addFavorite, removeFavorite} = useGithubActions();
+    const {addFavourite, removeFavourite} = useGithubActions();
     const {favourites} = useAppSelector(state => state.github);
+
+    console.log(favourites);
     const [isFav, setIsFav] = useState(favourites.includes(repo.html_url));
 
     const addToFavourite = (event: React.MouseEvent<HTMLButtonElement>) => {
         event.preventDefault();
-        addFavorite(repo.html_url);
+        addFavourite(repo.html_url);
         setIsFav(true);
     }
 
     const removeFromFavourite = (event: React.MouseEvent<HTMLButtonElement>) => {
         event.preventDefault();
-        removeFavorite(repo.html_url);
+        removeFavourite(repo.html_url);
         setIsFav(false);
     }
 

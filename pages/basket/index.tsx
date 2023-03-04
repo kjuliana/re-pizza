@@ -5,14 +5,16 @@ import {useAppSelector} from "../../hooks/redux";
 import styles from "./index.module.css";
 import CatalogList from "../../components/Catalog/Catalog";
 import {useBasketTotalCost} from "../../hooks/useBasketTotalCost";
-import {useBasketItemCount} from "../../hooks/useBasketItemCount";
 import Button from "../../components/UI/Button/Button";
 
 const Basket = () => {
     const {basket} = useAppSelector(state => state);
 
-    const totalPrice = useBasketTotalCost();
-    const totalCount = useBasketItemCount();
+    const cost = useBasketTotalCost();
+
+    const delivery = cost > 1000 ? 0 : 69;
+
+    const totalCost = cost + 69;
 
     return (
         <Layout>
@@ -21,17 +23,29 @@ const Basket = () => {
                     ?
                         <div className={styles.root}>
                             <div className={styles.basketList}>
-                                <h1>Корзина</h1>
+                                <h2>Корзина</h2>
                                 {Object.entries(basket).map(([productId, count]) =>
                                     <BasketItem key={productId} id={Number(productId)} count={count}/>
                                 )}
                             </div>
                             <div className={styles.orderWrapper}>
-                                <div>
-                                    Всего товаров: {totalCount}
+                                <h2>Итого</h2>
+                                <div className={styles.row}>
+                                    <div>Товары</div>
+                                    <div className={styles.price}>{cost} ₽</div>
                                 </div>
-                                <div>
-                                    Итого: {totalPrice}
+                                <div className={styles.row}>
+                                    <div>
+                                        Доставка
+                                        {delivery > 0 &&
+                                        <div className={styles.notes}>Бесплатная доставка от 1000 ₽</div>
+                                        }
+                                    </div>
+                                    <div className={styles.price}>{delivery} ₽</div>
+                                </div>
+                                <div className={styles.row}>
+                                    <h2>К оплате</h2>
+                                    <h2>{totalCost} ₽</h2>
                                 </div>
                                 <Button tag='button'>Заказать</Button>
                             </div>

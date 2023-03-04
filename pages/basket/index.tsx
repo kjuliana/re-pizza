@@ -36,8 +36,8 @@ const Basket = () => {
                                 <div className={styles.row}>
                                     <div>
                                         Доставка
-                                        {Boolean(delivery) &&
-                                        <div className={styles.unit}>Бесплатная доставка от 1000 ₽</div>
+                                        {delivery > 0 &&
+                                        <div className={styles.notes}>Бесплатная доставка от 1000 ₽</div>
                                         }
                                     </div>
                                     <div className={styles.price}>{delivery} ₽</div>

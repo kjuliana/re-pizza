@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {useAppSelector} from "../../hooks/redux";
 import styles from "./BasketItem.module.css"
-import MainButton from "../UI/MainButton/MainButton";
+import ProductCounter from "../ProductCounter/ProductCounter";
 
 interface BasketItemProps {
     id: number,
@@ -30,7 +30,7 @@ const BasketItem = ({id, count}: BasketItemProps) => {
                 <p>{item.name}</p>
             </div>
             <div className={styles.options}>
-                <MainButton id={id}/>
+                <ProductCounter id={id}/>
             </div>
             <span className={styles.price}>{sum} ₽</span>
         </div>

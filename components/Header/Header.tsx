@@ -2,9 +2,9 @@ import React from 'react';
 import styles from './Header.module.css';
 import Search from "../Search/Search";
 import Link from "next/link";
-import {useAppSelector} from "../../hooks/redux";
 import {useBasketTotalCost} from "../../hooks/useBasketTotalCost";
 import {useBasketItemCount} from "../../hooks/useBasketItemCount";
+import Button from "../UI/Button/Button";
 
 const Header = () => {
     const basketItemCount = useBasketItemCount();
@@ -17,9 +17,9 @@ const Header = () => {
             <Search/>
             <div className={styles.basketWrapper}>
                 <Link href="/basket" className={styles.link}>
-                    <div className={'button '+styles.button}>
+                    <Button tag='div'>
                         {basketTotalCost} ₽ | 🛒 {+basketItemCount}
-                    </div>
+                    </Button>
                 </Link>
             </div>
         </div>

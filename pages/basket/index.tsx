@@ -5,6 +5,7 @@ import {useAppSelector} from "../../hooks/redux";
 import styles from "./index.module.css";
 import CatalogList from "../../components/Catalog/Catalog";
 import {useBasketTotalCost} from "../../hooks/useBasketTotalCost";
+import Button from "../../components/UI/Button/Button";
 
 const Basket = () => {
     const {basket} = useAppSelector(state => state);
@@ -46,7 +47,7 @@ const Basket = () => {
                                     <h2>К оплате</h2>
                                     <h2>{totalCost} ₽</h2>
                                 </div>
-                                <button className='button'>Заказать</button>
+                                <Button tag='button'>Заказать</Button>
                             </div>
                         </div>
                     : <h1>Корзина пуста</h1>

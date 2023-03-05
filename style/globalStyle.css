@@ -2,6 +2,9 @@
     font-family: system-ui;
     font-style: normal;
 }
+html {
+    scroll-behavior: smooth;
+}
 
 body {
     margin: 0;

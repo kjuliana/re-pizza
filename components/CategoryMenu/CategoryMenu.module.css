@@ -5,8 +5,9 @@
     padding: 10px 0;
     position: sticky;
     top: 0;
-    background: rgba(255, 255, 255, 0.85);
-    border-radius:0 0 13px 13px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 0 0 13px 13px;
+    backdrop-filter: blur(4px);
 }
 
 .option {

@@ -1,5 +1,7 @@
 .root {
-    padding-top: 5px;
+    --offset: 25px;
+    padding-top: var(--offset);
+    margin-top: calc(var(--offset) * -1);
 }
 
 .list {

@@ -10,9 +10,10 @@ export const pizzaAPI = createApi({
     endpoints: build => ({
         getPizza: build.query<IDodoAPIResponse, string>({
             query: () => ({
-                url: 'dodo'
+                url: 'dodo',
             }),
-        })
+
+        }),
     })
 })
 

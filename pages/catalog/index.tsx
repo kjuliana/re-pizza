@@ -1,6 +1,6 @@
 import React from 'react';
 import Layout from "../../components/Layout/Layout";
-import CatalogList from "../../components/Catalog/Catalog";
+import CatalogList from "../../components/CatalogList/CatalogList";
 import CategoryMenu from "../../components/CategoryMenu/CategoryMenu";
 
 const Catalog = () => {

@@ -3,7 +3,7 @@ import BasketItem from '../../components/BasketItem/BasketItem';
 import Layout from "../../components/Layout/Layout";
 import {useAppSelector} from "../../hooks/redux";
 import styles from "./index.module.css";
-import CatalogList from "../../components/Catalog/Catalog";
+import CatalogList from "../../components/CatalogList/CatalogList";
 import {useBasketTotalCost} from "../../hooks/useBasketTotalCost";
 import Button from "../../components/UI/Button/Button";
 

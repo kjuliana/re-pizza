@@ -7,7 +7,7 @@ const CategoryMenu = () => {
 
     return (
         <div className={styles.root} >
-            {data?.menuCategories.map((category) => <div className={styles.option}>{category.name}</div>)}
+            {data?.menuCategories.map((category) => <a href={'#'+category.analyticsName} key={category.id} className={styles.option}>{category.name}</a>)}
         </div>
     );
 };

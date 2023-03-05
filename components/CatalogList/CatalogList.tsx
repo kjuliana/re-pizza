@@ -1,14 +1,14 @@
 import React from 'react';
-import {useGetPizzaQuery} from "../../store/pizza.api";
 import CatalogCategoryList from "../CatalogCategoryList/CatalogCategoryList";
 import styles from "./CatalogList.module.css";
+import {useGetCategories} from "../../hooks/useGetCategories";
 
 const CatalogList = () => {
-    const {data} = useGetPizzaQuery('pizza');
+    const categories = useGetCategories();
 
     return (
         <div className={styles.root}>
-            {data?.menuCategories.map((category) =>
+            {categories.map((category) =>
                     <CatalogCategoryList id={category.id} enName={category.analyticsName} name={category.name}/>
             )}
         </div>

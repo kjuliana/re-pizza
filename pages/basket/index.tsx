@@ -7,6 +7,7 @@ import CatalogList from "../../components/CatalogList/CatalogList";
 import {useBasketTotalCost} from "../../hooks/useBasketTotalCost";
 import Button from "../../components/UI/Button/Button";
 import {useGetPizzaQuery} from "../../store/pizza.api";
+import Loader from "../../components/UI/Loader/Loader";
 
 const Basket = () => {
     const basket = useAppSelector(state => state.basket);
@@ -18,7 +19,7 @@ const Basket = () => {
 
     if (isLoading) return (
         <Layout>
-            <div className={styles.root}>Loading ...</div>
+            <Loader/>
         </Layout>
     )
 

@@ -1,13 +1,13 @@
 import React from 'react';
-import {useGetPizzaQuery} from "../../store/pizza.api";
 import styles from "./CategoryMenu.module.css";
+import {useGetCategories} from "../../hooks/useGetCategories";
 
 const CategoryMenu = () => {
-    const {data} = useGetPizzaQuery('pizza');
+    const categories = useGetCategories();
 
     return (
         <div className={styles.root} >
-            {data?.menuCategories.map((category) => <a href={'#'+category.analyticsName} key={category.id} className={styles.option}>{category.name}</a>)}
+            {categories.map((category) => <a href={'#'+category.analyticsName} key={category.id} className={styles.option}>{category.name}</a>)}
         </div>
     );
 };

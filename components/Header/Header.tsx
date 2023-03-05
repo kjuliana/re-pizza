@@ -13,7 +13,6 @@ const Header = () => {
     return (
         <div className={styles.root}>
             <Link href="/" className={styles.logo}>Едамаркет</Link>
-            <Link href="/catalog" className={styles.link}>Каталог</Link>
             <Search/>
             <div className={styles.basketWrapper}>
                 <Link href="/basket" className={styles.link}>

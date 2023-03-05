@@ -1,17 +1,20 @@
 import React from 'react';
 import styles from "./CategoryMenu.module.css";
-import {useCategories} from "../../hooks/useCategories";
-import {useAppSelector} from "../../hooks/redux";
+import {MenuCategory, ProductsByCategory} from "../../models/models";
 
-const CategoryMenu = () => {
-    const categories = useCategories();
-    const {search} = useAppSelector(state => state.pizza);
+interface CategoryMenuProps {
+    categories: MenuCategory[],
+    productsByCategoryId: ProductsByCategory
+}
 
-    const classOption = search.length === 0 ? styles.option : styles.disabled;
-
+const CategoryMenu = ({categories, productsByCategoryId}: CategoryMenuProps) => {
     return (
         <div className={styles.root} >
-            {categories.map((category) => <a href={'#'+category.analyticsName} key={category.id} className={classOption}>{category.name}</a>)}
+            {categories.map((category) => {
+                return productsByCategoryId[category.id]?.length
+                    ? <a href={'#'+category.analyticsName} key={category.id} className={styles.option}>{category.name}</a>
+                    : <span key={category.id} className={styles.disabled}>{category.name}</span>
+            })}
         </div>
     );
 };

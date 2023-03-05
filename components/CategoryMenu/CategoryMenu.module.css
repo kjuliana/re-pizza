@@ -22,7 +22,5 @@
 }
 
 .disabled {
-    cursor: none;
-    text-decoration: none;
     color: var(--font-mute-color);
 }

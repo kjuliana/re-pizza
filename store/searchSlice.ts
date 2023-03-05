@@ -4,8 +4,8 @@ const initialState = {
     search: ''
 };
 
-export const pizzaSlice = createSlice({
-    name: 'pizza',
+export const searchSlice = createSlice({
+    name: 'search',
     initialState,
     reducers: {
         updateSearch(state, action: PayloadAction<string>) {
@@ -14,5 +14,5 @@ export const pizzaSlice = createSlice({
     }
 })
 
-export const pizzaActions = pizzaSlice.actions;
-export const pizzaReducer = pizzaSlice.reducer;
+export const searchActions = searchSlice.actions;
+export const searchReducer = searchSlice.reducer;

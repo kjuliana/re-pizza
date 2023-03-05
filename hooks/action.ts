@@ -2,7 +2,7 @@ import {useDispatch} from "react-redux";
 import {bindActionCreators} from "redux";
 import {githubActions} from "../store/github/github.slice";
 import {basketActions} from "../store/basket.slice";
-import {pizzaActions} from "../store/pizza.slice";
+import {searchActions} from "../store/searchSlice";
 
 
 export const useGithubActions = () => {
@@ -15,7 +15,7 @@ export const useBasketActions = () => {
     return bindActionCreators(basketActions, dispatch);
 }
 
-export const usePizzaActions = () => {
+export const useSearchActions = () => {
     const dispatch = useDispatch();
-    return bindActionCreators(pizzaActions, dispatch);
+    return bindActionCreators(searchActions, dispatch);
 }

@@ -1,3 +1,8 @@
+export type ProductsByCategory = {
+    [categoryId: string]: Product[]
+}
+
+
 export interface Image {
     type: number;
     url: string;

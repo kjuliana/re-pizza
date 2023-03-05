@@ -8,8 +8,16 @@ import {useBasketTotalCost} from "../../hooks/useBasketTotalCost";
 import Button from "../../components/UI/Button/Button";
 import {useGetPizzaQuery} from "../../store/pizza.api";
 import Loader from "../../components/UI/Loader/Loader";
+import {useCategories} from "../../hooks/useCategories";
+import {useProducts} from "../../hooks/useProducts";
+import {groupByCategoryId} from "../../models/product/utils";
 
 const Basket = () => {
+    const categories = useCategories();
+    const products = useProducts();
+
+    const productsByCategoryId = groupByCategoryId(products);
+
     const basket = useAppSelector(state => state.basket);
     const {data, isLoading} = useGetPizzaQuery('pizza');
 
@@ -38,7 +46,7 @@ const Basket = () => {
         <Layout>
             <h1>Корзина пуста</h1>
             <h3>Вам может быть интересно</h3>
-            <CategoryList/>
+            <CategoryList productsByCategoryId={productsByCategoryId} categories={categories} productCount={products.length}/>
         </Layout>
     )
 
@@ -74,7 +82,7 @@ const Basket = () => {
                 </div>
             </div>
             <h3>Вам может быть интересно</h3>
-            <CategoryList/>
+            <CategoryList productsByCategoryId={productsByCategoryId} categories={categories} productCount={products.length}/>
         </Layout>
     );
 };

@@ -5,7 +5,7 @@ import {githubReducer} from "./github/github.slice";
 import {basketReducer} from "./basket.slice";
 import {catalogReducer} from "./catalog.slice";
 import {pizzaAPI} from "./pizza.api";
-import {pizzaReducer} from "./pizza.slice";
+import {searchReducer} from "./searchSlice";
 
 export const store = configureStore({
     reducer: {
@@ -14,7 +14,7 @@ export const store = configureStore({
         basket: basketReducer,
         catalog: catalogReducer,
         [pizzaAPI.reducerPath]: pizzaAPI.reducer,
-        pizza: pizzaReducer
+        search: searchReducer
     },
     middleware: getDefaultMiddleware => getDefaultMiddleware().concat(pizzaAPI.middleware)
 })

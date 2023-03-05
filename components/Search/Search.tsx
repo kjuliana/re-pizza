@@ -1,12 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import styles from './Search.module.css';
 import {useDebounce} from "../../hooks/debounce";
-import {usePizzaActions} from "../../hooks/action";
+import {useSearchActions} from "../../hooks/action";
 
 const Search = () => {
     const [search, setSearch] = useState('');
     const debounced = useDebounce(search);
-    const {updateSearch} = usePizzaActions();
+    const {updateSearch} = useSearchActions();
 
     useEffect(() => {
         updateSearch(debounced);
@@ -14,6 +14,7 @@ const Search = () => {
 
     return (
         <input
+            autoComplete='off'
             placeholder='Поиск'
             type='search'
             className={styles.root}

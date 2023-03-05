@@ -1,16 +1,14 @@
 import React from 'react';
 import styles from "./Catalog.module.css"
 import ProductCard from "../ProductCard/ProductCard";
-import {useAppSelector} from "../../hooks/redux";
+import {useGetPizzaQuery} from "../../store/pizza.api";
 
 const CatalogList = () => {
-    const catalog = useAppSelector(state => state.catalog);
+    const {data} = useGetPizzaQuery('pizza');
 
     return (
         <div className={styles.root}>
-            {catalog.map((item)=>
-                <ProductCard id={item.id} key={item.id} name={item.name} price={item.price} count={item.count} image={item.image}/>
-            )}
+            {data?.items.map((item) => <ProductCard id={item.id} name={item.name} price={item.shoppingItems[0].price} description={item.description} image={item.image.url}/>)}
         </div>
     );
 };

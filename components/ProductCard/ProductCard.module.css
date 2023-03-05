@@ -16,11 +16,13 @@
 }
 
 .image {
-    width: 130px;
+    width: 200px;
+    padding: 10px;
 }
 
 .about {
     width: 90%;
+    padding: 15px 0;
 }
 
 .price {
@@ -28,8 +30,14 @@
     font-size: 20px;
 }
 
-.unit {
+.notes {
     color: var(--font-main-color);
-    font-size: 18px;
-    font-weight: 300;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.name {
+    font-weight: 500;
+    font-size: 20px;
+    padding: 10px 0;
 }

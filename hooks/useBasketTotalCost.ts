@@ -1,11 +1,13 @@
 import {useAppSelector} from "./redux";
+import {useGetPizzaQuery} from "../store/pizza.api";
 
 export const useBasketTotalCost = () => {
-    const {basket, catalog} = useAppSelector(state => state);
+    const {basket} = useAppSelector(state => state);
+    const {data} = useGetPizzaQuery('pizza');
     let totalCount = 0;
 
     for (let id in basket) {
-        let price = catalog.find(product => product.id === Number(id)).price;
+        let price = data?.items.find(item => item.id === id).shoppingItems[0].price;
         totalCount += price*basket[id];
     }
     return totalCount

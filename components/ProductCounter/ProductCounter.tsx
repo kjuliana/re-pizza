@@ -6,7 +6,7 @@ import Button from "../UI/Button/Button";
 
 interface MainButtonProps {
     // children: React.ReactNode,
-    id: number
+    id: string
     // onClick(event: React.MouseEvent<HTMLButtonElement>)
 }
 

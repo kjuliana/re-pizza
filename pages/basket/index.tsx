@@ -25,7 +25,7 @@ const Basket = () => {
                             <div className={styles.basketList}>
                                 <h2>Корзина</h2>
                                 {Object.entries(basket).map(([productId, count]) =>
-                                    <BasketItem key={productId} id={Number(productId)} count={count}/>
+                                    <BasketItem key={productId} id={productId} count={count}/>
                                 )}
                             </div>
                             <div className={styles.orderWrapper}>

@@ -7,7 +7,6 @@ import {useProducts} from "../hooks/useProducts";
 import {useAppSelector} from "../hooks/redux";
 import {filter, groupByCategoryId} from "../models/product/utils";
 
-
 const Index = () => {
     const categories = useCategories();
     const products = useProducts();

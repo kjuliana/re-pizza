@@ -1,6 +1,6 @@
 .root {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
     padding: 10px 0;
     position: sticky;
@@ -10,11 +10,19 @@
     backdrop-filter: blur(4px);
 }
 
+.menu {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    flex-wrap: wrap;
+}
+
 .option {
     cursor: pointer;
     font-weight: 500;
     text-decoration: none;
     color: black;
+    padding: 5px 15px;
 }
 
 .option:hover {
@@ -23,4 +31,5 @@
 
 .disabled {
     color: var(--font-mute-color);
+    padding: 0 15px;
 }

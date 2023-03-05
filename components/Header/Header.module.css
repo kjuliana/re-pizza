@@ -4,6 +4,8 @@
     align-items: center;
     height: 65px;
     border-bottom: 1px solid var(--shadow-color);
+    width: 80%;
+    margin: auto;
 }
 
 .logo {
@@ -20,10 +22,4 @@
     font-weight: 500;
     font-size: 16px;
     margin: 0 1rem ;
-}
-
-.basketWrapper {
-    width: 25%;
-    display: flex;
-    justify-content: end;
 }

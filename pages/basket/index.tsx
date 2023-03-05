@@ -3,7 +3,7 @@ import BasketItem, {BasketItemProps} from '../../components/BasketItem/BasketIte
 import Layout from "../../components/Layout/Layout";
 import {useAppSelector} from "../../hooks/redux";
 import styles from "./index.module.css";
-import CatalogList from "../../components/CatalogList/CatalogList";
+import CategoryList from "../../components/CategoryList/CategoryList";
 import {useBasketTotalCost} from "../../hooks/useBasketTotalCost";
 import Button from "../../components/UI/Button/Button";
 import {useGetPizzaQuery} from "../../store/pizza.api";
@@ -38,7 +38,7 @@ const Basket = () => {
         <Layout>
             <h1>Корзина пуста</h1>
             <h3>Вам может быть интересно</h3>
-            <CatalogList/>
+            <CategoryList/>
         </Layout>
     )
 
@@ -74,7 +74,7 @@ const Basket = () => {
                 </div>
             </div>
             <h3>Вам может быть интересно</h3>
-            <CatalogList/>
+            <CategoryList/>
         </Layout>
     );
 };

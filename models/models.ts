@@ -14,7 +14,7 @@ export interface ShoppingItem {
     productId: string;
 }
 
-export interface Item {
+export interface Product {
     id: string;
     name: string;
     description: string;
@@ -65,7 +65,7 @@ export interface ProductSchemes {
 }
 
 export interface IDodoAPIResponse {
-    items: Item[];
+    items: Product[];
     hiddenItems: [];
     popular: [];
     products: [];
@@ -75,7 +75,7 @@ export interface IDodoAPIResponse {
     imageResizeMode: number;
 }
 
-export interface IProduct {
+export interface IBanan {
     id: number,
     name: string,
     price: number,

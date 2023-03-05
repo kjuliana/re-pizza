@@ -1,7 +1,7 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {IProduct} from "../models/models";
+import {IBanan} from "../models/models";
 
-type catalog = IProduct[];
+type catalog = IBanan[];
 const initialState: catalog = [
     {
         id: 1,

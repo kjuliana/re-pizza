@@ -1,13 +1,17 @@
 import React from 'react';
 import styles from "./CategoryMenu.module.css";
-import {useGetCategories} from "../../hooks/useGetCategories";
+import {useCategories} from "../../hooks/useCategories";
+import {useAppSelector} from "../../hooks/redux";
 
 const CategoryMenu = () => {
-    const categories = useGetCategories();
+    const categories = useCategories();
+    const {search} = useAppSelector(state => state.pizza);
+
+    const classOption = search.length === 0 ? styles.option : styles.disabled;
 
     return (
         <div className={styles.root} >
-            {categories.map((category) => <a href={'#'+category.analyticsName} key={category.id} className={styles.option}>{category.name}</a>)}
+            {categories.map((category) => <a href={'#'+category.analyticsName} key={category.id} className={classOption}>{category.name}</a>)}
         </div>
     );
 };

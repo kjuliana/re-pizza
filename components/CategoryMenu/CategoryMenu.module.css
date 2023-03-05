@@ -20,3 +20,9 @@
 .option:hover {
     color: var(--accent-color);
 }
+
+.disabled {
+    cursor: none;
+    text-decoration: none;
+    color: var(--font-mute-color);
+}

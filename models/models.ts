@@ -1,4 +1,86 @@
-export interface IProduct {
+export type ProductsByCategory = {
+    [categoryId: string]: Product[]
+}
+
+
+export interface Image {
+    type: number;
+    url: string;
+}
+
+export interface Size {
+    measure: number;
+    value: number;
+}
+
+export interface ShoppingItem {
+    id: string;
+    price: number;
+    productId: string;
+}
+
+export interface Product {
+    id: string;
+    name: string;
+    description: string;
+    translitName: string;
+    priority: number;
+    type: number;
+    category: string;
+    menuCategoryId: string;
+    image: Image;
+    size: Size;
+    shoppingItems: ShoppingItem[];
+    customShoppingItems: [];
+}
+
+export interface MenuCategory {
+    id: string;
+    displayType: string;
+    name: string;
+    position: number;
+    analyticsName: string;
+}
+
+export interface SizeGroup {
+    size: number;
+    name: string;
+    shortName: string;
+}
+
+export interface SizeScheme {
+    id: string;
+    sizeGroups: SizeGroup[];
+}
+
+export interface DoughType {
+    dough: number;
+    name: string;
+    shortName: string;
+}
+
+export interface DoughScheme {
+    id: string;
+    doughTypes: DoughType[];
+}
+
+export interface ProductSchemes {
+    sizeSchemes: SizeScheme[];
+    doughSchemes: DoughScheme[];
+}
+
+export interface IDodoAPIResponse {
+    items: Product[];
+    hiddenItems: [];
+    popular: [];
+    products: [];
+    prioritizedCategories: string[];
+    menuCategories: MenuCategory[];
+    productSchemes: ProductSchemes;
+    imageResizeMode: number;
+}
+
+export interface IBanan {
     id: number,
     name: string,
     price: number,

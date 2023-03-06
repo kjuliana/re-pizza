@@ -11,12 +11,12 @@ export const basketSlice = createSlice({
     name: 'basket',
     initialState,
     reducers: {
-        addBasket(state, action: PayloadAction<number>) {
+        addBasket(state, action: PayloadAction<string>) {
             state[action.payload] ??= 0;
             state[action.payload] += 1;
             localStorage.setItem(BASKET_KEY, JSON.stringify(state));
         },
-        removeBasket(state, action: PayloadAction<number>) {
+        removeBasket(state, action: PayloadAction<string>) {
             // state.basket[action.payload] = state.basket[action.payload] ?? 0;
             // state.basket[action.payload] = state.basket[action.payload] + 1 || 1;
             state[action.payload] -= 1;

@@ -1,38 +1,26 @@
-import React, {useEffect, useState} from 'react';
-import {useAppSelector} from "../../hooks/redux";
+import React from 'react';
 import styles from "./BasketItem.module.css"
 import ProductCounter from "../ProductCounter/ProductCounter";
 
-interface BasketItemProps {
-    id: number,
-    count: number
+export interface BasketItemProps {
+    id: string,
+    image: string,
+    name: string,
+    cost: number
 }
 
-const BasketItem = ({id, count}: BasketItemProps) => {
-    const catalog = useAppSelector(state => state.catalog);
-
-    const [item, setItem] = useState({
-        name: '',
-        image: '',
-        price: 0
-    });
-
-    const sum = item.price*count;
-
-    useEffect(() => {
-        setItem(catalog.find(product => product.id === id))
-    }, []);
+const BasketItem = ({id, image, name, cost}: BasketItemProps) => {
 
     return (
         <div className={styles.root}>
             <div className={styles.information}>
-                <img className={styles.image} src={item.image} alt={item.name}/>
-                <p>{item.name}</p>
+                <img className={styles.image} src={image} alt={name}/>
+                <div className={styles.name}>{name}</div>
             </div>
             <div className={styles.options}>
                 <ProductCounter id={id}/>
             </div>
-            <span className={styles.price}>{sum} ₽</span>
+            <span className={styles.price}>{cost} ₽</span>
         </div>
     );
 };

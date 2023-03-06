@@ -1,0 +1,17 @@
+.root {
+    --offset: 25px;
+    padding-top: var(--offset);
+    margin-top: calc(var(--offset) * -1);
+}
+
+.list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+
+.name {
+    font-size: 2em;
+    font-weight: 700;
+}

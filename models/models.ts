@@ -41,8 +41,8 @@ export interface ShoppingItem {
     id: string;
     price: number;
     productId: string;
-    // dough?: number,
-    // size?: number
+    dough?: number,
+    size?: number
 }
 
 export interface Product {
@@ -99,7 +99,7 @@ export interface IDodoAPIResponse {
     items: Product[];
     hiddenItems: [];
     popular: [];
-    products: [];
+    products: ProductFromProducts[];
     prioritizedCategories: string[];
     menuCategories: MenuCategory[];
     productSchemes: ProductSchemes;

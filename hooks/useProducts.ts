@@ -1,39 +1,31 @@
 import {useGetPizzaQuery} from "../store/pizza.api";
-import {Product, ProductFromProducts} from "../models/models";
+import {IDodoAPIResponse, Product, ProductFromProducts} from "../models/models";
 
-export const useProducts = () => {
-    const {data, isLoading} = useGetPizzaQuery('pizza');
+const convert = (data: IDodoAPIResponse): Product[] => {
+    const productMap: Record<string, ProductFromProducts> = {};
 
-    if (isLoading) return [];
-
-    const productMap = {};
-
-    const products: ProductFromProducts[] = data.products;
-
-    for (let product of products) {
+    for (let product of data.products) {
         productMap[product.id] = product;
     }
 
-    const items: Product[] = data.items;
-
-    const result = [];
-
-    for (let item of items) {
-        let newItem = {};
-        if (item.category === "Pizza") {
-            const newShoppingItems = [];
-            for (let shoppingItem of item.shoppingItems) {
-                let newShoppingItem = {...shoppingItem, doughId: 0, sizeId: 0}
-                newShoppingItem.doughId = productMap[shoppingItem.productId].dough;
-                newShoppingItem.sizeId = productMap[shoppingItem.productId].sizeGroup;
-                newShoppingItems.push(newShoppingItem);
+    return data.items.map((item) => {
+        const newItem = {...item};
+        newItem.shoppingItems = item.shoppingItems.map((shoppingItem) => {
+            const product = productMap[shoppingItem.productId];
+            return {
+                ...shoppingItem,
+                dough: product.dough ?? 0,
+                size: product.sizeGroup ?? 0
             }
-            newItem = {...item, shoppingItems: newShoppingItems};
-            result.push(newItem);
-        }
-        result.push(item)
-    }
-    console.log(result);
+        });
+        return newItem;
+    });
 
-    return data.items;
+}
+
+export const useProducts = () => {
+    const {data, isLoading} = useGetPizzaQuery('pizza');
+    if (isLoading) return [];
+
+    return convert(data);
 }

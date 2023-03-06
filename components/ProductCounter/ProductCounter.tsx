@@ -6,22 +6,23 @@ import Button from "../UI/Button/Button";
 
 interface MainButtonProps {
     // children: React.ReactNode,
-    id: string
+    id: string,
+    shoppingItemId: string
     // onClick(event: React.MouseEvent<HTMLButtonElement>)
 }
 
-const ProductCounter = ({id}: MainButtonProps) => {
+const ProductCounter = ({id, shoppingItemId}: MainButtonProps) => {
     const {addBasket, removeBasket} = useBasketActions();
     const basket = useAppSelector(state => state.basket);
 
     const addToBasket = (event: React.MouseEvent) => {
         event.preventDefault();
-        addBasket(id);
+        addBasket({id: id, shoppingItemId: shoppingItemId});
     }
 
     const removeFromBasket = (event: React.MouseEvent) => {
         event.preventDefault();
-        removeBasket(id);
+        removeBasket({id: id, shoppingItemId: shoppingItemId});
     }
 
     return (

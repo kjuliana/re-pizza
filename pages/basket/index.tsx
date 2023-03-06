@@ -46,7 +46,7 @@ const Basket = () => {
         <Layout>
             <h1>Корзина пуста</h1>
             <h3>Вам может быть интересно</h3>
-            <CategoryList productsByCategoryId={productsByCategoryId} categories={categories} productCount={products.length}/>
+            <CategoryList productsByCategoryId={productsByCategoryId} categories={categories} search='' productCount={products.length}/>
         </Layout>
     )
 
@@ -82,7 +82,7 @@ const Basket = () => {
                 </div>
             </div>
             <h3>Вам может быть интересно</h3>
-            <CategoryList productsByCategoryId={productsByCategoryId} categories={categories} productCount={products.length}/>
+            <CategoryList productsByCategoryId={productsByCategoryId} categories={categories} search='' productCount={products.length}/>
         </Layout>
     );
 };

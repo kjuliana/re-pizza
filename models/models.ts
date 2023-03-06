@@ -115,7 +115,16 @@ export interface IBanan {
 }
 
 export type IBasket = {
-    [productId: number]: number;
+    [productId: string]: number;
+}
+
+export interface IBasketI {
+    [productId: string]: IBasket
+}
+
+export interface IBasketIds {
+    id: string,
+    shoppingItemId: string
 }
 
 

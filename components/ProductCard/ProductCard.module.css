@@ -41,3 +41,13 @@
     font-size: 20px;
     padding: 10px 0;
 }
+
+.variants {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.variant {
+    border-left: 1px solid rgba(217, 213, 218, 0.55);
+    padding: 5px;
+}

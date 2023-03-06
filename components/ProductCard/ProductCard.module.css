@@ -57,3 +57,7 @@
     padding: 5px;
     margin: 5px;
 }
+
+.currentVariant {
+    background: rgba(241, 113, 43, 0.2);
+}

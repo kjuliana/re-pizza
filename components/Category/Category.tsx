@@ -3,7 +3,6 @@ import styles from "./Category.module.css";
 import ProductCard from "../ProductCard/ProductCard";
 import {Product} from "../../models/models";
 import Loader from "../UI/Loader/Loader";
-import {useProducts} from "../../hooks/useProducts";
 
 interface CategoryProps {
     enName: string,
@@ -12,13 +11,7 @@ interface CategoryProps {
 }
 
 const Category = ({enName, name, products}: CategoryProps) => {
-    // const {data, isLoading} = useGetPizzaQuery('pizza');
-
-    // const items = [];
-
     if (!products.length) return <Loader/>;
-
-    // const itemsInCategory: Product[] = items.filter((item) => item.menuCategoryId === id);
 
     return (
         <div id={enName} className={styles.root}>

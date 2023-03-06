@@ -10,6 +10,7 @@ interface ProductCardProps {
     image: string,
 }
 
+
 const ProductCard = ({id, name, price, description, image}: ProductCardProps) => {
     return (
         <div className={styles.root}>

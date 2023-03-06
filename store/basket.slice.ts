@@ -12,15 +12,15 @@ export const basketSlice = createSlice({
     initialState,
     reducers: {
         addBasket(state, action: PayloadAction<IBasketIds>) {
-            state[action.payload.id] ??= 0;
-            state[action.payload.id] += 1;
+             if (!state[action.payload.id]) state[action.payload.id] = {};
+            state[action.payload.id][action.payload.shoppingItemId] ??= 0;
+             state[action.payload.id][action.payload.shoppingItemId] += 1
             localStorage.setItem(BASKET_KEY, JSON.stringify(state));
         },
         removeBasket(state, action: PayloadAction<IBasketIds>) {
-            // state.basket[action.payload] = state.basket[action.payload] ?? 0;
-            // state.basket[action.payload] = state.basket[action.payload] + 1 || 1;
-            state[action.payload.id] -= 1;
-            state[action.payload.id] === 0 && delete state[action.payload.id];
+            state[action.payload.id][action.payload.shoppingItemId] -= 1;
+            state[action.payload.id][action.payload.shoppingItemId] === 0 && delete state[action.payload.id][action.payload.shoppingItemId];
+            Object.keys(state[action.payload.id]).length === 0 && delete state[action.payload.id];
             localStorage.setItem(BASKET_KEY, JSON.stringify(state));
         },
         restore(state) {

@@ -114,12 +114,12 @@ export interface IBanan {
     image: string,
 }
 
-export type IBasket = {
-    [productId: string]: number;
+export type IBasketShoppingItem = {
+    [shoppingItemId: string]: number;
 }
 
-export interface IBasketI {
-    [productId: string]: IBasket
+export interface IBasket {
+    [productId: string]: IBasketShoppingItem
 }
 
 export interface IBasketIds {

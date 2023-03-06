@@ -8,9 +8,11 @@ export const useBasketTotalCost = () => {
 
     if (isLoading) return totalCount;
 
-    for (let id in basket) {
-        let price = data?.items.find(item => item.id === id).shoppingItems[0].price;
-        totalCount += price*basket[id];
+    for (let productId in basket) {
+        for (let shoppingItemId in basket[productId]) {
+            let price = data?.items.find(item => item.id === productId).shoppingItems.find(item => item.id === shoppingItemId).price;
+            totalCount += price*basket[productId][shoppingItemId];
+        }
     }
     return totalCount
 }

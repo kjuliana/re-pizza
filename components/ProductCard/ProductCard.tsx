@@ -31,7 +31,7 @@ const ProductCard = ({id, name, description, shoppingItems, image}: ProductCardP
                             <button className={styles.variant} key={item.id} onClick={() => setCurrentShoppingItemId(item.id)}>
                                 <p>Тесто:{item.dough}</p>
                                 <p>Размер: {item.size}</p>
-                                <p>Цена: {item.price}</p>
+                                <p>{item.price} ₽</p>
                             </button>
                         ))}
                     </div>

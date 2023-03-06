@@ -5,8 +5,10 @@ export const useBasketItemCount = () => {
 
     let basketCount = 0;
 
-    for (let key in basket) {
-        basketCount += basket[key];
+    for (let productId in basket) {
+        for (let shoppingId in basket[productId]) {
+            basketCount += basket[productId][shoppingId];
+        }
     }
 
     return basketCount;

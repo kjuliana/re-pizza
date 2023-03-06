@@ -30,5 +30,15 @@
 }
 
 .name {
+
+}
+
+.notes {
+    color: var(--font-main-color);
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.nameWrapper {
     padding: 0 10px;
 }

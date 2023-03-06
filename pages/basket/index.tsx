@@ -6,7 +6,6 @@ import styles from "./index.module.css";
 import CategoryList from "../../components/CategoryList/CategoryList";
 import {useBasketTotalCost} from "../../hooks/useBasketTotalCost";
 import Button from "../../components/UI/Button/Button";
-import {useGetPizzaQuery} from "../../store/pizza.api";
 import Loader from "../../components/UI/Loader/Loader";
 import {useCategories} from "../../hooks/useCategories";
 import {useProducts} from "../../hooks/useProducts";
@@ -19,28 +18,35 @@ const Basket = () => {
     const productsByCategoryId = groupByCategoryId(products);
 
     const basket = useAppSelector(state => state.basket);
-    const {data, isLoading} = useGetPizzaQuery('pizza');
 
     const cost = useBasketTotalCost();
     const delivery = cost > 1000 ? 0 : 69;
     const totalCost = cost + 69;
 
-    if (isLoading) return (
+    if (!products.length) return (
         <Layout>
             <Loader/>
         </Layout>
     )
 
-    const basketItems: BasketItemProps[] = Object.entries(basket)
-        .map(([productId, count]): BasketItemProps => {
-            const item = data.items.find(item => item.id === productId);
-            return {
-                id: productId,
-                name: item.name,
-                image: item.image.url,
-                cost: count * item.shoppingItems[0].price
-            }
-        })
+    const basketItems: BasketItemProps[] = [];
+
+    for (let productId in basket) {
+        const item = products.find(item => item.id === productId);
+        for (let shoppingItemId in basket[productId]) {
+            basketItems.push(
+                {
+                    id: productId,
+                    name: item.name,
+                    image: item.image.url,
+                    shoppingItemId: shoppingItemId,
+                    cost: basket[productId][shoppingItemId] * item.shoppingItems.find(item => item.id === shoppingItemId).price,
+                    dough: item.shoppingItems.find(item => item.id === shoppingItemId).dough,
+                    size: item.shoppingItems.find(item => item.id === shoppingItemId).size
+                }
+            )
+        }
+    }
 
     if (!basketItems.length) return (
         <Layout>
@@ -56,7 +62,16 @@ const Basket = () => {
                 <div className={styles.basketList}>
                     <h2>Корзина</h2>
                     {basketItems.map((item) =>
-                        <BasketItem key={item.id} id={item.id} image={item.image} name={item.name} cost={item.cost}/>
+                        <BasketItem
+                            key={item.id}
+                            id={item.id}
+                            image={item.image}
+                            shoppingItemId={item.shoppingItemId}
+                            name={item.name}
+                            cost={item.cost}
+                            dough={item.dough}
+                            size={item.size}
+                        />
                     )}
                 </div>
                 <div className={styles.orderWrapper}>

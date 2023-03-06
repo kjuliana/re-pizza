@@ -27,11 +27,11 @@ const ProductCounter = ({id, shoppingItemId}: MainButtonProps) => {
 
     return (
         <>
-            {basket[id]
+            {basket[id] && basket[id][shoppingItemId]
                 ?
                     <div className={styles.wrapper}>
                         <Button onClick={removeFromBasket}>−</Button>
-                        {basket[id]}
+                        {basket[id][shoppingItemId]}
                         <Button onClick={addToBasket}>+</Button>
                     </div>
                 :

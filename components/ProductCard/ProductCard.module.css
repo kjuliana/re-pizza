@@ -44,10 +44,16 @@
 
 .variants {
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
 }
 
 .variant {
-    border-left: 1px solid rgba(217, 213, 218, 0.55);
+    display: flex;
+    justify-content: space-between;
+    background: none;
+    border: 1px solid var(--accent-color);
+    border-radius: 13px;
     padding: 5px;
+    margin: 5px;
 }

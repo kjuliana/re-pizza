@@ -1,3 +1,27 @@
+export interface ProductFromProducts {
+    size?: {};
+    foodValue?: {};
+    allergens: string;
+    allergensCanContain: string;
+    isBaked: boolean;
+    ingredients?: [];
+    toppings?: [];
+    id: string;
+    name: string;
+    description: string;
+    category: string;
+    images?:[];
+    type: number;
+    maxCount?: any;
+    slots?: [];
+    sizeGroup?: number;
+    dough?: number;
+    pizzaId: string;
+    metaProductId: string;
+    sizeSchemeId: string;
+    doughSchemeId: string;
+}
+
 export type ProductsByCategory = {
     [categoryId: string]: Product[]
 }
@@ -17,6 +41,8 @@ export interface ShoppingItem {
     id: string;
     price: number;
     productId: string;
+    // dough?: number,
+    // size?: number
 }
 
 export interface Product {

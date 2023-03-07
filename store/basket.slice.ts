@@ -19,7 +19,7 @@ export const basketSlice = createSlice({
         },
         removeBasket(state, action: PayloadAction<IBasketIds>) {
             state[action.payload.id][action.payload.shoppingItemId] -= 1;
-            state[action.payload.id][action.payload.shoppingItemId] === 0 && delete state[action.payload.id][action.payload.shoppingItemId];
+            state[action.payload.id][action.payload.shoppingItemId] < 1 && delete state[action.payload.id][action.payload.shoppingItemId];
             Object.keys(state[action.payload.id]).length === 0 && delete state[action.payload.id];
             localStorage.setItem(BASKET_KEY, JSON.stringify(state));
         },

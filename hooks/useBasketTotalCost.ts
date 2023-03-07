@@ -14,5 +14,6 @@ export const useBasketTotalCost = () => {
             totalCount += price*basket[productId][shoppingItemId];
         }
     }
-    return totalCount
+
+    return totalCount;
 }

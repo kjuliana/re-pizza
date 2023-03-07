@@ -10,10 +10,12 @@ import Loader from "../../components/UI/Loader/Loader";
 import {useCategories} from "../../hooks/useCategories";
 import {useProducts} from "../../hooks/useProducts";
 import {groupByCategoryId} from "../../models/product/utils";
+import {useBasketActions} from "../../hooks/action";
 
 const Basket = () => {
     const categories = useCategories();
     const products = useProducts();
+    const {removeAllBasket} = useBasketActions();
 
     const productsByCategoryId = groupByCategoryId(products);
 
@@ -22,6 +24,10 @@ const Basket = () => {
     const cost = useBasketTotalCost();
     const delivery = cost > 1000 ? 0 : 69;
     const totalCost = cost + 69;
+
+    const removeAllBasketFunc = () => {
+        removeAllBasket();
+    }
 
     if (!products.length) return (
         <Layout>

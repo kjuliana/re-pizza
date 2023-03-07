@@ -44,45 +44,48 @@ const ProductCard = ({itemId, name, description, shoppingItems, image}: ProductC
             <div className={styles.content}>
                 <img className={styles.image} src={image} alt={name}/>
                 <div className={styles.about}>
-                    <div className={styles.price}>{price} ₽</div>
                     <div className={styles.name}>{name}</div>
-                    {
-                        shoppingItems.length > 1 &&
-                        <div className={styles.optionsWrapper}>
-                            <div className={styles.doughOptions}>
-                                {Object.keys(sizesByDough)
-                                    .map(doughId =>
-                                        <button
-                                            className={currentDoughtId === Number(doughId) ? styles.current + ' ' + styles.option : styles.option}
-                                            key={doughId}
-                                            onClick={() => setCurrentDoughtId(Number(doughId))}
-                                        >
-                                            {formatDough(doughId)}
-                                        </button>
-                                    )
-                                }
-                            </div>
-                            <div className={styles.sizeOptions}>
-                                {sizesByDough[currentDoughtId] &&
-                                sizesByDough[currentDoughtId]
-                                    .map(sizeId =>
-                                        <button
-                                            className={currentSizeId === sizeId ? styles.current + ' ' + styles.option : styles.option}
-                                            key={sizeId}
-                                            onClick={() => setCurrentSizeId(sizeId)}
-                                        >
-                                            {formatSize(sizeId)}
-                                        </button>
-                                    )
-                                }
-                            </div>
-
-                        </div>
-                    }
                     <div className={styles.notes}>{description}</div>
                 </div>
             </div>
-            <ProductCounter id={itemId} shoppingItemId={currentShoppingItemId} isBasketItem={false}/>
+            <div className={styles.wrapper}>
+                {
+                    shoppingItems.length > 1 &&
+                    <div className={styles.optionsWrapper}>
+                        <div className={styles.doughOptions}>
+                            {Object.keys(sizesByDough)
+                                .map(doughId =>
+                                    <button
+                                        className={currentDoughtId === Number(doughId) ? styles.current + ' ' + styles.option : styles.option}
+                                        key={doughId}
+                                        onClick={() => setCurrentDoughtId(Number(doughId))}
+                                    >
+                                        {formatDough(doughId)}
+                                    </button>
+                                )
+                            }
+                        </div>
+                        <div className={styles.sizeOptions}>
+                            {sizesByDough[currentDoughtId] &&
+                            sizesByDough[currentDoughtId]
+                                .map(sizeId =>
+                                    <button
+                                        className={currentSizeId === sizeId ? styles.current + ' ' + styles.option : styles.option}
+                                        key={sizeId}
+                                        onClick={() => setCurrentSizeId(sizeId)}
+                                    >
+                                        {formatSize(sizeId)}
+                                    </button>
+                                )
+                            }
+                        </div>
+                    </div>
+                }
+                <div className={styles.priceWrapper}>
+                    <div className={styles.price}>{price} ₽</div>
+                    <ProductCounter id={itemId} shoppingItemId={currentShoppingItemId} isBasketItem={false}/>
+                </div>
+            </div>
         </div>
     );
 };

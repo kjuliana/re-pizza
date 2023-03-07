@@ -12,6 +12,7 @@ interface CategoryListProps {
 }
 
 const CategoryList = ({productCount, search, categories, productsByCategoryId}: CategoryListProps) => {
+
     if (!productCount) {
         return search
             ?

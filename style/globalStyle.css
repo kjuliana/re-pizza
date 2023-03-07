@@ -10,6 +10,24 @@ body {
     margin: 0;
 }
 
+/*@property --accent-color {*/
+/*    !* An initial value for our custom property *!*/
+/*    initial-value: #F7742A;*/
+/*    !* Whether it inherits from parent set values or not *!*/
+/*    inherits: false;*/
+/*    !* The type. Yes, the type. You thought TypeScript was cool *!*/
+/*    syntax: '<color>';*/
+/*}*/
+
+/*@property --accent-color-gradient {*/
+/*    !* An initial value for our custom property *!*/
+/*    initial-value: #FFAD33;*/
+/*    !* Whether it inherits from parent set values or not *!*/
+/*    inherits: false;*/
+/*    !* The type. Yes, the type. You thought TypeScript was cool *!*/
+/*    syntax: '<color>';*/
+/*}*/
+
 :root {
     --accent-color: #F7742A;
     --accent-color-gradient: #FFAD33;
@@ -17,6 +35,6 @@ body {
     --shadow-color: rgba(0, 0, 0, 0.05);
     --font-mute-color: rgba(0, 0, 0, 0.25);
     --font-main-color: rgba(0, 0, 0, 0.5);
-    --loader-main-color: rgb(255 90 0 / 49%);
-    --loader-mute-color: rgb(255 153 0 / 26%);
+    --loader-main-color: rgb(255, 178, 77);
+    --loader-mute-color: rgb(255, 215, 122);
 }

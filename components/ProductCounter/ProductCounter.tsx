@@ -7,11 +7,12 @@ import Button from "../UI/Button/Button";
 interface MainButtonProps {
     // children: React.ReactNode,
     id: string,
-    shoppingItemId: string
+    shoppingItemId: string,
+    isBasketItem: boolean
     // onClick(event: React.MouseEvent<HTMLButtonElement>)
 }
 
-const ProductCounter = ({id, shoppingItemId}: MainButtonProps) => {
+const ProductCounter = ({id, isBasketItem, shoppingItemId}: MainButtonProps) => {
     const {addBasket, removeBasket} = useBasketActions();
     const basket = useAppSelector(state => state.basket);
 
@@ -27,7 +28,7 @@ const ProductCounter = ({id, shoppingItemId}: MainButtonProps) => {
 
     return (
         <>
-            {basket[id] && basket[id][shoppingItemId]
+            {isBasketItem
                 ?
                     <div className={styles.wrapper}>
                         <Button onClick={removeFromBasket}>−</Button>

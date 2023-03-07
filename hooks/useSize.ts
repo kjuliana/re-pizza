@@ -1,14 +1,19 @@
 import {useGetPizzaQuery} from "../store/pizza.api";
 import {SizeGroup} from "../models/models";
+import {useMemo} from "react";
 
-export const useSize = (id: number): SizeGroup => {
-    const {data, isLoading} = useGetPizzaQuery('pizza');
+export const useSize = (): {(id: string): string} => {
+    const {data} = useGetPizzaQuery('pizza');
 
-    if (isLoading) return {
-        size: 0,
-        name: '',
-        shortName: ''
-    };
+    const memoObj = useMemo(() => {
+        const sizeObj: Record<string, SizeGroup> = {};
+        data.productSchemes.sizeSchemes[2].sizeGroups.forEach(sizeGroup => sizeObj[sizeGroup.size] = sizeGroup);
+        return sizeObj;
+    }, []);
 
-    return data.productSchemes.sizeSchemes[2].sizeGroups.find(obj => obj.size === id);
+    function formatSize(id: string): string {
+        return memoObj[id].shortName;
+    }
+
+    return formatSize;
 }

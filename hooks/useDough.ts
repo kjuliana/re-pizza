@@ -1,12 +1,19 @@
 import {useGetPizzaQuery} from "../store/pizza.api";
 import {DoughType} from "../models/models";
+import {useMemo} from "react";
 
-export const useDough = (id: number): DoughType => {
-    const {data, isLoading} = useGetPizzaQuery('pizza');
-    if (isLoading) return {
-        dough: 0,
-        name: '',
-        shortName: ''
-    };
-    return data.productSchemes.doughSchemes[0].doughTypes.find(obj => obj.dough === id);
+export const useDough = (): {(id: string): string} => {
+    const {data} = useGetPizzaQuery('pizza');
+
+    const memoObj = useMemo(() => {
+        const doughObj: Record<string, DoughType> = {};
+        data.productSchemes.doughSchemes[0].doughTypes.forEach(doughType => doughObj[doughType.dough] = doughType);
+        return doughObj;
+    }, []);
+
+    function formatDough(id: string): string {
+        return memoObj[id].shortName;
+    }
+
+    return formatDough;
 }

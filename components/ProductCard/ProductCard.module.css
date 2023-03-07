@@ -42,41 +42,33 @@
     padding: 10px 0;
 }
 
-.variants {
+.optionsWrapper {
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
+    align-items: stretch;
 }
 
-.variant {
-    position: relative;
+.doughOptions {
     display: flex;
-    justify-content: space-between;
-    background: none;
-    border: 1px solid var(--accent-color);
+    justify-content: stretch;
+    align-items: center;
+}
+
+.sizeOptions {
+    display: flex;
+    justify-content: stretch;
+    align-items: center;
+}
+
+.option {
+    flex-grow: 1;
+    padding: 7px;
+    background: white;
+    border: 1px solid var(--font-mute-color);
     border-radius: 13px;
-    padding: 5px;
     margin: 5px;
 }
 
-.currentVariant {
-    background: rgba(241, 113, 43, 0.2);
-}
-
-.optionWrapper {
-    display: flex;
-}
-
-.counter {
-    position: absolute;
-    top: -5px;
-    right: -5px;
-    background: var(--accent-color);
-    border-radius: 50%;
-    width: 1.5rem;
-    height: 1.5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    line-height: 1;
+.current {
+    background: var(--loader-mute-color);
 }

@@ -14,7 +14,7 @@ const Category = ({enName, name, products}: CategoryProps) => {
         <div id={enName} className={styles.root}>
             <h2 className={styles.name}>{name}</h2>
             <div className={styles.list}>
-                {products.map((item) => <ProductCard key={item.id} id={item.id} name={item.name} shoppingItems={item.shoppingItems} description={item.description} image={item.image.url}/>)}
+                {products.map((item) => <ProductCard key={item.id} itemId={item.id} name={item.name} shoppingItems={item.shoppingItems} description={item.description} image={item.image.url}/>)}
             </div>
         </div>
     );

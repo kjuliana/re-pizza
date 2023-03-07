@@ -18,13 +18,13 @@ const BasketItem = ({id, image, name, cost, shoppingItemId, dough, size}: Basket
     let doughName = '';
     let sizeName = '';
     if (dough) {
-        const obj = useDough(dough);
-        doughName = obj.shortName
+        const convert = useDough();
+        doughName = convert(String(dough));
     }
 
     if (size) {
-        const obj = useSize(size)
-        sizeName = obj.shortName
+        const convert = useSize();
+        sizeName = convert(String(size));
     }
 
     return (
@@ -38,7 +38,7 @@ const BasketItem = ({id, image, name, cost, shoppingItemId, dough, size}: Basket
                 </div>
             </div>
             <div className={styles.options}>
-                <ProductCounter id={id} shoppingItemId={shoppingItemId}/>
+                <ProductCounter id={id} shoppingItemId={shoppingItemId} isBasketItem={true}/>
             </div>
             <span className={styles.price}>{cost} ₽</span>
         </div>

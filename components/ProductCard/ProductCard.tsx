@@ -1,12 +1,12 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from './ProductCard.module.css';
 import ProductCounter from "../ProductCounter/ProductCounter";
 import {ShoppingItem} from "../../models/models";
-import {useAppSelector} from "../../hooks/redux";
+import {useDough} from "../../hooks/useDough";
 import {useSize} from "../../hooks/useSize";
 
 interface ProductCardProps {
-    id: string
+    itemId: string
     name: string,
     description: string,
     image: string,
@@ -14,63 +14,75 @@ interface ProductCardProps {
 }
 
 
-const ProductCard = ({id, name, description, shoppingItems, image}: ProductCardProps) => {
+const ProductCard = ({itemId, name, description, shoppingItems, image}: ProductCardProps) => {
     const [currentShoppingItemId, setCurrentShoppingItemId] = useState(shoppingItems[0].id);
-    const basket = useAppSelector(state => state.basket);
+    const [currentDoughtId, setCurrentDoughtId] = useState(1);
+    const [currentSizeId, setCurrentSizeId] = useState(2);
+    const formatDough = useDough();
+    const formatSize = useSize();
 
-    const price = shoppingItems.find((item) => item.id === currentShoppingItemId).price;
+    const price = shoppingItems.find((item) => item.id === currentShoppingItemId)?.price;
+    const sizesByDough = {};
+
+    if (shoppingItems.length > 1) {
+        for (let shoppingItem of shoppingItems) {
+            sizesByDough[shoppingItem.dough] ??= [];
+            sizesByDough[shoppingItem.dough].push(shoppingItem.size)
+        }
+    }
+
+    useEffect(() => {
+        if (shoppingItems.length > 1) {
+            if (!sizesByDough[currentDoughtId].find(sizeId => sizeId === currentSizeId)) setCurrentSizeId(2);
+            setCurrentShoppingItemId(shoppingItems.find(shoppingItem =>
+                shoppingItem.dough === currentDoughtId && shoppingItem.size === currentSizeId)?.id)
+        }
+    }, [currentDoughtId, currentSizeId]);
+
     return (
         <div className={styles.root}>
             <div className={styles.content}>
                 <img className={styles.image} src={image} alt={name}/>
                 <div className={styles.about}>
                     <div className={styles.price}>{price} ₽</div>
-                    {shoppingItems.length > 1 &&
-                    <div className={styles.variants}>
-                        <div>
-                            <p>Традиционное</p>
-                            <div className={styles.optionWrapper}>
-                                {shoppingItems.filter(item => item.dough === 1).map((item) => {
-                                    const classButton = currentShoppingItemId === item.id ? styles.variant + ' ' +styles.currentVariant : styles.variant;
-                                    // const {name: dough} = useDough(item.dough);
-                                    const {name: size} = useSize(item.size);
-                                    return (
-                                        <button className={classButton} key={item.id} onClick={() => setCurrentShoppingItemId(item.id)}>
-                                            {basket[id] && basket[id][item.id] ? <div className={styles.counter}>{basket[id][item.id]}</div> : <></>}
-                                            {/*<p>{dough}</p>*/}
-                                            <p>{size}</p>
-                                            {/*<p>{item.price} ₽</p>*/}
+                    <div className={styles.name}>{name}</div>
+                    {
+                        shoppingItems.length > 1 &&
+                        <div className={styles.optionsWrapper}>
+                            <div className={styles.doughOptions}>
+                                {Object.keys(sizesByDough)
+                                    .map(doughId =>
+                                        <button
+                                            className={currentDoughtId === Number(doughId) ? styles.current + ' ' + styles.option : styles.option}
+                                            key={doughId}
+                                            onClick={() => setCurrentDoughtId(Number(doughId))}
+                                        >
+                                            {formatDough(doughId)}
                                         </button>
                                     )
-                                })}
+                                }
                             </div>
-                        </div>
-                        <div>
-                            <p>Тонкое</p>
-                            <div className={styles.optionWrapper}>
-                            {shoppingItems.filter(item => item.dough === 2).map((item) => {
-                                const classButton = currentShoppingItemId === item.id ? styles.variant + ' ' +styles.currentVariant : styles.variant;
-                                // const {name: dough} = useDough(item.dough);
-                                const {name: size} = useSize(item.size);
-                                return (
-                                    <button className={classButton} key={item.id} onClick={() => setCurrentShoppingItemId(item.id)}>
-                                        {basket[id] && basket[id][item.id] ? <div className={styles.counter}>{basket[id][item.id]}</div> : <></>}
-                                        {/*<p>{dough}</p>*/}
-                                        <p>{size}</p>
-                                        {/*<p>{item.price} ₽</p>*/}
-                                    </button>
-                                )
-                            })}
+                            <div className={styles.sizeOptions}>
+                                {sizesByDough[currentDoughtId] &&
+                                sizesByDough[currentDoughtId]
+                                    .map(sizeId =>
+                                        <button
+                                            className={currentSizeId === sizeId ? styles.current + ' ' + styles.option : styles.option}
+                                            key={sizeId}
+                                            onClick={() => setCurrentSizeId(sizeId)}
+                                        >
+                                            {formatSize(sizeId)}
+                                        </button>
+                                    )
+                                }
                             </div>
-                        </div>
-                    </div>
-                    }
-                    <div className={styles.name}>{name}</div>
-                    <div className={styles.notes}>{description}</div>
 
+                        </div>
+                    }
+                    <div className={styles.notes}>{description}</div>
                 </div>
             </div>
-            <ProductCounter id={id} shoppingItemId={currentShoppingItemId}/>
+            <ProductCounter id={itemId} shoppingItemId={currentShoppingItemId} isBasketItem={false}/>
         </div>
     );
 };

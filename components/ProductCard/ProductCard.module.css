@@ -49,6 +49,7 @@
 }
 
 .variant {
+    position: relative;
     display: flex;
     justify-content: space-between;
     background: none;
@@ -60,4 +61,22 @@
 
 .currentVariant {
     background: rgba(241, 113, 43, 0.2);
+}
+
+.optionWrapper {
+    display: flex;
+}
+
+.counter {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: var(--accent-color);
+    border-radius: 50%;
+    width: 1.5rem;
+    height: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1;
 }

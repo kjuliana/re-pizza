@@ -2,8 +2,7 @@ import React, {useEffect, useState} from 'react';
 import styles from './ProductCard.module.css';
 import ProductCounter from "../ProductCounter/ProductCounter";
 import {ShoppingItem} from "../../models/models";
-import {useDough} from "../../hooks/useDough";
-import {useSize} from "../../hooks/useSize";
+import OptionalProductMenu from "../OptionalProductMenu/OptionalProductMenu";
 
 interface ProductCardProps {
     itemId: string
@@ -13,13 +12,10 @@ interface ProductCardProps {
     shoppingItems: ShoppingItem[]
 }
 
-
 const ProductCard = ({itemId, name, description, shoppingItems, image}: ProductCardProps) => {
     const [currentShoppingItemId, setCurrentShoppingItemId] = useState(shoppingItems[0].id);
-    const [currentDoughtId, setCurrentDoughtId] = useState(1);
+    const [currentDoughId, setCurrentDoughId] = useState(1);
     const [currentSizeId, setCurrentSizeId] = useState(2);
-    const formatDough = useDough();
-    const formatSize = useSize();
 
     const price = shoppingItems.find((item) => item.id === currentShoppingItemId)?.price;
     const sizesByDough = {};
@@ -33,11 +29,11 @@ const ProductCard = ({itemId, name, description, shoppingItems, image}: ProductC
 
     useEffect(() => {
         if (shoppingItems.length > 1) {
-            if (!sizesByDough[currentDoughtId].find(sizeId => sizeId === currentSizeId)) setCurrentSizeId(2);
+            if (!sizesByDough[currentDoughId].find(sizeId => sizeId === currentSizeId)) setCurrentSizeId(2);
             setCurrentShoppingItemId(shoppingItems.find(shoppingItem =>
-                shoppingItem.dough === currentDoughtId && shoppingItem.size === currentSizeId)?.id)
+                shoppingItem.dough === currentDoughId && shoppingItem.size === currentSizeId)?.id)
         }
-    }, [currentDoughtId, currentSizeId]);
+    }, [currentDoughId, currentSizeId]);
 
     return (
         <div className={styles.root}>
@@ -51,35 +47,13 @@ const ProductCard = ({itemId, name, description, shoppingItems, image}: ProductC
             <div className={styles.wrapper}>
                 {
                     shoppingItems.length > 1 &&
-                    <div className={styles.optionsWrapper}>
-                        <div className={styles.doughOptions}>
-                            {Object.keys(sizesByDough)
-                                .map(doughId =>
-                                    <button
-                                        className={currentDoughtId === Number(doughId) ? styles.current + ' ' + styles.option : styles.option}
-                                        key={doughId}
-                                        onClick={() => setCurrentDoughtId(Number(doughId))}
-                                    >
-                                        {formatDough(doughId)}
-                                    </button>
-                                )
-                            }
-                        </div>
-                        <div className={styles.sizeOptions}>
-                            {sizesByDough[currentDoughtId] &&
-                            sizesByDough[currentDoughtId]
-                                .map(sizeId =>
-                                    <button
-                                        className={currentSizeId === sizeId ? styles.current + ' ' + styles.option : styles.option}
-                                        key={sizeId}
-                                        onClick={() => setCurrentSizeId(sizeId)}
-                                    >
-                                        {formatSize(sizeId)}
-                                    </button>
-                                )
-                            }
-                        </div>
-                    </div>
+                    <OptionalProductMenu
+                        shoppingItems={shoppingItems}
+                        currentDoughId={currentDoughId}
+                        setCurrentDoughId={setCurrentDoughId}
+                        currentSizeId={currentSizeId}
+                        setCurrentSizeId={setCurrentSizeId}
+                    />
                 }
                 <div className={styles.priceWrapper}>
                     <div className={styles.price}>{price} ₽</div>

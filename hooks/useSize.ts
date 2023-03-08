@@ -2,7 +2,7 @@ import {useGetPizzaQuery} from "../store/pizza.api";
 import {SizeGroup} from "../models/models";
 import {useMemo} from "react";
 
-export const useSize = (): {(id: string): string} => {
+export const useSize = () => {
     const {data} = useGetPizzaQuery('pizza');
 
     const memoObj = useMemo(() => {
@@ -11,8 +11,8 @@ export const useSize = (): {(id: string): string} => {
         return sizeObj;
     }, []);
 
-    function formatSize(id: string): string {
-        return memoObj[id].shortName;
+    function formatSize(id: number): string {
+        return memoObj[String(id)].shortName;
     }
 
     return formatSize;

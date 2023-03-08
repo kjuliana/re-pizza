@@ -34,15 +34,16 @@ const Basket = () => {
     for (let productId in basket) {
         const item = products.find(item => item.id === productId);
         for (let shoppingItemId in basket[productId]) {
+            const shoppingItem = item.shoppingItems.find(item => item.id === shoppingItemId);
             basketItems.push(
                 {
                     id: productId,
                     name: item.name,
                     image: item.image.url,
                     shoppingItemId: shoppingItemId,
-                    cost: basket[productId][shoppingItemId] * item.shoppingItems.find(item => item.id === shoppingItemId).price,
-                    dough: item.shoppingItems.find(item => item.id === shoppingItemId).dough,
-                    size: item.shoppingItems.find(item => item.id === shoppingItemId).size
+                    cost: basket[productId][shoppingItemId] * shoppingItem.price,
+                    dough: shoppingItem.dough,
+                    size: shoppingItem.size
                 }
             )
         }

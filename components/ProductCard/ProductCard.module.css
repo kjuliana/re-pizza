@@ -44,46 +44,6 @@
     padding: 10px 0;
 }
 
-.optionsWrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    background: var(--shadow-color);
-    border-radius: 13px;
-    padding: 5px;
-}
-
-.doughOptions {
-    display: flex;
-    justify-content: stretch;
-    align-items: center;
-}
-
-.sizeOptions {
-    display: flex;
-    justify-content: stretch;
-    align-items: center;
-}
-
-.option {
-    flex-grow: 1;
-    padding: 7px;
-    background: transparent;
-    border: none;
-    border-radius: 13px;
-    margin: 5px;
-    font-weight: 500;
-    text-transform: lowercase;
-    font-size: 14px;
-    cursor: pointer;
-}
-
-.current {
-    background:white;
-    box-shadow: 1px 1px 10px -10px;
-    cursor: default;
-}
-
 .priceWrapper {
     display: flex;
     justify-content: space-between;

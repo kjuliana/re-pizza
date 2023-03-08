@@ -10,24 +10,6 @@ body {
     margin: 0;
 }
 
-/*@property --accent-color {*/
-/*    !* An initial value for our custom property *!*/
-/*    initial-value: #F7742A;*/
-/*    !* Whether it inherits from parent set values or not *!*/
-/*    inherits: false;*/
-/*    !* The type. Yes, the type. You thought TypeScript was cool *!*/
-/*    syntax: '<color>';*/
-/*}*/
-
-/*@property --accent-color-gradient {*/
-/*    !* An initial value for our custom property *!*/
-/*    initial-value: #FFAD33;*/
-/*    !* Whether it inherits from parent set values or not *!*/
-/*    inherits: false;*/
-/*    !* The type. Yes, the type. You thought TypeScript was cool *!*/
-/*    syntax: '<color>';*/
-/*}*/
-
 :root {
     --accent-color: #F7742A;
     --accent-color-gradient: #FFAD33;

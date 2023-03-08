@@ -2,7 +2,7 @@ import {useGetPizzaQuery} from "../store/pizza.api";
 import {DoughType} from "../models/models";
 import {useMemo} from "react";
 
-export const useDough = (): {(id: string): string} => {
+export const useDough = (): {(id: number): string} => {
     const {data} = useGetPizzaQuery('pizza');
 
     const memoObj = useMemo(() => {
@@ -11,7 +11,7 @@ export const useDough = (): {(id: string): string} => {
         return doughObj;
     }, []);
 
-    function formatDough(id: string): string {
+    function formatDough(id: number): string {
         return memoObj[id].shortName;
     }
 

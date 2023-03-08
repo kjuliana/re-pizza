@@ -15,17 +15,8 @@ export interface BasketItemProps {
 }
 
 const BasketItem = ({id, image, name, cost, shoppingItemId, dough, size}: BasketItemProps) => {
-    let doughName = '';
-    let sizeName = '';
-    if (dough) {
-        const convert = useDough();
-        doughName = convert(String(dough));
-    }
-
-    if (size) {
-        const convert = useSize();
-        sizeName = convert(String(size));
-    }
+    const formatDough = useDough();
+    const formatSize = useSize();
 
     return (
         <div className={styles.root}>
@@ -33,8 +24,8 @@ const BasketItem = ({id, image, name, cost, shoppingItemId, dough, size}: Basket
                 <img className={styles.image} src={image} alt={name}/>
                 <div className={styles.nameWrapper}>
                     <div className={styles.name}>{name}</div>
-                    {doughName && <div className={styles.notes}>{doughName}</div>}
-                    {sizeName && <div className={styles.notes}>{sizeName}</div>}
+                    {dough && <div className={styles.notes}>{formatDough(dough)}</div>}
+                    {size && <div className={styles.notes}>{formatSize(size)}</div>}
                 </div>
             </div>
             <div className={styles.options}>

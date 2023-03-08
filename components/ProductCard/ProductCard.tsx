@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import styles from './ProductCard.module.css';
 import ProductCounter from "../ProductCounter/ProductCounter";
 import {ShoppingItem} from "../../models/models";
-import OptionalProductMenu from "../OptionalProductMenu/OptionalProductMenu";
+import ProductOptionMenu from "../ProductOptionMenu/ProductOptionMenu";
 
 interface ProductCardProps {
     itemId: string
@@ -47,12 +47,12 @@ const ProductCard = ({itemId, name, description, shoppingItems, image}: ProductC
             <div className={styles.wrapper}>
                 {
                     shoppingItems.length > 1 &&
-                    <OptionalProductMenu
+                    <ProductOptionMenu
                         shoppingItems={shoppingItems}
-                        currentDoughId={currentDoughId}
-                        setCurrentDoughId={setCurrentDoughId}
-                        currentSizeId={currentSizeId}
-                        setCurrentSizeId={setCurrentSizeId}
+                        doughId={currentDoughId}
+                        onDoughIdChange={setCurrentDoughId}
+                        sizeId={currentSizeId}
+                        onSizeIdChange={setCurrentSizeId}
                     />
                 }
                 <div className={styles.priceWrapper}>

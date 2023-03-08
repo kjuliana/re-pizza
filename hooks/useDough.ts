@@ -2,7 +2,7 @@ import {useGetPizzaQuery} from "../store/pizza.api";
 import {DoughType} from "../models/models";
 import {useMemo} from "react";
 
-export const useDough = (): {(id: number): string} => {
+export const useDough = () => {
     const {data} = useGetPizzaQuery('pizza');
 
     const memoObj = useMemo(() => {

@@ -12,7 +12,7 @@ export const useSize = () => {
     }, []);
 
     function formatSize(id: number): string {
-        return memoObj[String(id)].shortName;
+        return memoObj[id].shortName;
     }
 
     return formatSize;

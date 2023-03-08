@@ -18,7 +18,7 @@ const Index = () => {
     return (
         <Layout>
             <CategoryMenu categories={categories} productsByCategoryId={productsByCategoryId} />
-            <CategoryList categories={categories} productsByCategoryId={productsByCategoryId} productCount={filteredProducts.length}/>
+            <CategoryList categories={categories} productsByCategoryId={productsByCategoryId} search={search} productCount={filteredProducts.length}/>
         </Layout>
     );
 };

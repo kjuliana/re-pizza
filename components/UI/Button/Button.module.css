@@ -6,11 +6,18 @@
     font-weight: 600;
     color: #fff;
     padding: 10px 16px;
+    transition: all 5s;
+    cursor: pointer;
 }
 
 .root:hover {
     box-shadow: 0 0 3px 0 var(--accent-color);
-    background: var(--accent-color-gradient) ;
+    background: linear-gradient(to right, var(--accent-color-gradient), var(--accent-color-gradient));
+}
+
+.root:active {
+    background: linear-gradient(to right, var(--accent-color), var(--accent-color));
+    box-shadow: 0 0 10px 0 var(--accent-color);
 }
 
 .rootWide {

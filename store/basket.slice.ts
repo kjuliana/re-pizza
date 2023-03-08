@@ -1,5 +1,5 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {IBasket} from "../models/models";
+import {IBasket, IBasketIds} from "../models/models";
 
 const BASKET_KEY = 'basket';
 
@@ -11,16 +11,20 @@ export const basketSlice = createSlice({
     name: 'basket',
     initialState,
     reducers: {
-        addBasket(state, action: PayloadAction<string>) {
-            state[action.payload] ??= 0;
-            state[action.payload] += 1;
+        addBasket(state, action: PayloadAction<IBasketIds>) {
+            state[action.payload.id] ??= {};
+            state[action.payload.id][action.payload.shoppingItemId] ??= 0;
+             state[action.payload.id][action.payload.shoppingItemId] += 1
             localStorage.setItem(BASKET_KEY, JSON.stringify(state));
         },
-        removeBasket(state, action: PayloadAction<string>) {
-            // state.basket[action.payload] = state.basket[action.payload] ?? 0;
-            // state.basket[action.payload] = state.basket[action.payload] + 1 || 1;
-            state[action.payload] -= 1;
-            state[action.payload] === 0 && delete state[action.payload];
+        removeBasket(state, action: PayloadAction<IBasketIds>) {
+            state[action.payload.id][action.payload.shoppingItemId] -= 1;
+            if (state[action.payload.id][action.payload.shoppingItemId] < 1) {
+                delete state[action.payload.id][action.payload.shoppingItemId];
+            }
+            if (Object.keys(state[action.payload.id]).length === 0) {
+                delete state[action.payload.id];
+            }
             localStorage.setItem(BASKET_KEY, JSON.stringify(state));
         },
         restore(state) {

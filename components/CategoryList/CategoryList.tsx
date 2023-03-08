@@ -2,17 +2,28 @@ import React from 'react';
 import Category from "../Category/Category";
 import styles from "./CategoryList.module.css";
 import {MenuCategory, ProductsByCategory} from "../../models/models";
+import Loader from "../UI/Loader/Loader";
 
 interface CategoryListProps {
     productCount: number,
     categories: MenuCategory[],
-    productsByCategoryId: ProductsByCategory
+    productsByCategoryId: ProductsByCategory,
+    search: string
 }
 
-const CategoryList = ({productCount, categories, productsByCategoryId}: CategoryListProps) => {
-    if (!productCount) return <div className={styles.root}>
-        <h1>Ничего не найдено 🥲</h1>
-    </div>
+const CategoryList = ({productCount, search, categories, productsByCategoryId}: CategoryListProps) => {
+
+    if (!productCount) {
+        return search
+            ?
+            <div className={styles.root}>
+                <h1>Ничего не найдено 🥲</h1>
+            </div>
+            :
+            <div className={styles.root}>
+                <Loader/>
+            </div>
+    }
 
     return (
         <div>

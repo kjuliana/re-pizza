@@ -1,5 +1,5 @@
 .root {
-    --offset: 25px;
+    --offset: 30px;
     padding-top: var(--offset);
     margin-top: calc(var(--offset) * -1);
 }

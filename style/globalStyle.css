@@ -17,6 +17,6 @@ body {
     --shadow-color: rgba(0, 0, 0, 0.05);
     --font-mute-color: rgba(0, 0, 0, 0.25);
     --font-main-color: rgba(0, 0, 0, 0.5);
-    --loader-main-color: rgb(255 90 0 / 49%);
-    --loader-mute-color: rgb(255 153 0 / 26%);
+    --loader-main-color: rgb(255, 178, 77);
+    --loader-mute-color: rgb(255, 215, 122);
 }

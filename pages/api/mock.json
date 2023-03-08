@@ -64859,17 +64859,17 @@
           {
             "size": 1,
             "name": "Маленькая 25 см",
-            "shortName": "Маленькая"
+            "shortName": "25 см"
           },
           {
             "size": 2,
             "name": "Средняя 30 см",
-            "shortName": "Средняя"
+            "shortName": "30 см"
           },
           {
             "size": 3,
             "name": "Большая 35 см",
-            "shortName": "Большая"
+            "shortName": "35 см"
           }
         ]
       },

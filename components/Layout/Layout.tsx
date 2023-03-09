@@ -2,6 +2,7 @@ import React from 'react';
 import Header from "../Header/Header";
 import styles from './Layout.module.css';
 import Head from "next/head";
+import favicon from './favicon.ico';
 
 interface LayoutProps {
     children: React.ReactNode
@@ -12,7 +13,7 @@ const Layout = ({children} : LayoutProps) => {
         <div className={styles.root}>
             <Head>
                 <title>Пицца Москва заказать пиццу</title>
-                <link rel="icon" href='/favicon.ico'/>
+                <link rel="icon" href={favicon.src}/>
             </Head>
             <Header/>
             <div className={styles.content}>

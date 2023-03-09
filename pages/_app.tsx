@@ -5,7 +5,6 @@ import {Provider} from "react-redux";
 import {store} from "../store";
 import {Initializer} from "../services/Initializer";
 
-
 export default function MyApp({ Component, pageProps }: AppProps) {
     return <Provider store={store}>
         <Initializer>

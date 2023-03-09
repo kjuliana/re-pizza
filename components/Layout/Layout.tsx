@@ -12,6 +12,7 @@ const Layout = ({children} : LayoutProps) => {
         <div className={styles.root}>
             <Head>
                 <title>Пицца Москва заказать пиццу</title>
+                <link rel="icon" href='/favicon.ico'/>
             </Head>
             <Header/>
             <div className={styles.content}>

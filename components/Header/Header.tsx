@@ -6,7 +6,7 @@ import Link from "next/link";
 const Header = () => {
     return (
         <div className={styles.root}>
-            <Link href="/" className={styles.logo}>Едамаркет</Link>
+            <Link href="/" className={styles.logo}>RE🍕PIZZA</Link>
             <Search/>
         </div>
     );

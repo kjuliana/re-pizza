@@ -77,24 +77,26 @@ const Basket = () => {
                 </div>
                 <div className={styles.orderWrapper}>
                     <h2>Итого</h2>
-                    <div className={styles.row}>
-                        <div>Товары</div>
-                        <div className={styles.price}>{cost} ₽</div>
-                    </div>
-                    <div className={styles.row}>
-                        <div>
-                            Доставка
-                            {delivery > 0 &&
-                            <div className={styles.notes}>Бесплатная доставка от 1000 ₽</div>
-                            }
+                    <div className={styles.totalWrapper}>
+                        <div className={styles.row}>
+                            <div>Товары</div>
+                            <div className={styles.price}>{cost} ₽</div>
                         </div>
-                        <div className={styles.price}>{delivery} ₽</div>
+                        <div className={styles.row}>
+                            <div>
+                                Доставка
+                                {delivery > 0 &&
+                                <div className={styles.notes}>Бесплатная доставка от 1000 ₽</div>
+                                }
+                            </div>
+                            <div className={styles.price}>{delivery} ₽</div>
+                        </div>
+                        <div className={styles.row+' '+styles.total}>
+                            <span>К оплате</span>
+                            <span className={styles.totalCost}>{totalCost} ₽</span>
+                        </div>
+                        <Button tag='button' wide={true}>Заказать</Button>
                     </div>
-                    <div className={styles.row+' '+styles.total}>
-                        <span>К оплате</span>
-                        <span className={styles.totalCost}>{totalCost} ₽</span>
-                    </div>
-                    <Button tag='button'>Заказать</Button>
                 </div>
             </div>
             <h3>Вам может быть интересно</h3>

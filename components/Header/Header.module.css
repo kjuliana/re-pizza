@@ -9,7 +9,6 @@
 }
 
 .logo {
-    color: var(--main-color);
     font-weight: 900;
     font-size: 28px;
     text-decoration: none;
@@ -28,4 +27,11 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+
+.wordsLogo {
+    background: linear-gradient(to right, var(--accent-color), var(--accent-color-gradient));
+    color: transparent !important;
+    -webkit-background-clip: text;
 }

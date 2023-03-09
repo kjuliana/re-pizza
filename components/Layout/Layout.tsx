@@ -12,7 +12,7 @@ const Layout = ({children} : LayoutProps) => {
     return (
         <div className={styles.root}>
             <Head>
-                <title>Пицца Москва заказать пиццу</title>
+                <title>Re.Pizza Доставка пиццы Москва</title>
                 <link rel="icon" href={favicon.src}/>
             </Head>
             <Header/>

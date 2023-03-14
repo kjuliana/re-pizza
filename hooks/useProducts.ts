@@ -10,14 +10,16 @@ const convert = (data: IDodoAPIResponse): Product[] => {
 
     return data.items.map((item) => {
         const newItem = {...item};
-        newItem.shoppingItems = item.shoppingItems.map((shoppingItem) => {
-            const product = productMap[shoppingItem.productId];
-            return {
-                ...shoppingItem,
-                dough: product.dough ?? 0,
-                size: product.sizeGroup ?? 0
-            }
-        });
+        if (item.shoppingItems.length > 1) {
+            newItem.shoppingItems =  item.shoppingItems.map((shoppingItem) => {
+                const product = productMap[shoppingItem.productId];
+                return {
+                    ...shoppingItem,
+                    dough: product.dough ?? 0,
+                    size: product.sizeGroup ?? 0
+                }
+            })
+        }
         return newItem;
     });
 

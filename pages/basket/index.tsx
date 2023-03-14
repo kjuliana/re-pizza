@@ -21,7 +21,7 @@ const Basket = () => {
 
     const cost = useBasketTotalCost();
     const delivery = cost > 1000 ? 0 : 69;
-    const totalCost = cost + 69;
+    const totalCost = cost + delivery;
 
     if (!products.length) return (
         <Layout>

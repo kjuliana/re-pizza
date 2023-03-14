@@ -1,0 +1,19 @@
+.notes {
+    color: var(--font-main-color);
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.itemWrapper {
+    padding: 5px 0;
+}
+
+.totalCost {
+    font-weight: 500;
+    margin: 10px 0;
+    font-size: 2em;
+}
+
+.infoWrapper {
+    margin-right: 100px;
+}

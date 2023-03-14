@@ -1,7 +1,6 @@
 import React from 'react';
-import BasketItem, {BasketItemProps} from '../../components/BasketItem/BasketItem';
+import BasketItem from '../../components/BasketItem/BasketItem';
 import Layout from "../../components/Layout/Layout";
-import {useAppSelector} from "../../hooks/redux";
 import styles from "./index.module.css";
 import CategoryList from "../../components/CategoryList/CategoryList";
 import {useBasketTotalCost} from "../../hooks/useBasketTotalCost";
@@ -10,6 +9,8 @@ import Loader from "../../components/UI/Loader/Loader";
 import {useCategories} from "../../hooks/useCategories";
 import {useProducts} from "../../hooks/useProducts";
 import {groupByCategoryId} from "../../models/product/utils";
+import Link from "next/link";
+import {useBasketItems} from "../../hooks/useBasketItems";
 
 const Basket = () => {
     const categories = useCategories();
@@ -17,37 +18,17 @@ const Basket = () => {
 
     const productsByCategoryId = groupByCategoryId(products);
 
-    const basket = useAppSelector(state => state.basket);
-
     const cost = useBasketTotalCost();
     const delivery = cost > 1000 ? 0 : 69;
     const totalCost = cost + 69;
+
+    const basketItems = useBasketItems(products);
 
     if (!products.length) return (
         <Layout>
             <Loader/>
         </Layout>
     )
-
-    const basketItems: BasketItemProps[] = [];
-
-    for (let productId in basket) {
-        const item = products.find(item => item.id === productId);
-        for (let shoppingItemId in basket[productId]) {
-            const shoppingItem = item.shoppingItems.find(item => item.id === shoppingItemId);
-            basketItems.push(
-                {
-                    id: productId,
-                    name: item.name,
-                    image: item.image.url,
-                    shoppingItemId: shoppingItemId,
-                    cost: basket[productId][shoppingItemId] * shoppingItem.price,
-                    dough: shoppingItem.dough,
-                    size: shoppingItem.size
-                }
-            )
-        }
-    }
 
     if (!basketItems.length) return (
         <Layout>
@@ -64,7 +45,7 @@ const Basket = () => {
                     <h2>Корзина</h2>
                     {basketItems.map((item) =>
                         <BasketItem
-                            key={item.id}
+                            key={item.shoppingItemId}
                             id={item.id}
                             image={item.image}
                             shoppingItemId={item.shoppingItemId}
@@ -95,7 +76,9 @@ const Basket = () => {
                             <span>К оплате</span>
                             <span className={styles.totalCost}>{totalCost} ₽</span>
                         </div>
-                        <Button tag='button' wide={true}>Заказать</Button>
+                        <Link href="/order">
+                            <Button tag='button' wide={true}>Заказать</Button>
+                        </Link>
                     </div>
                 </div>
             </div>

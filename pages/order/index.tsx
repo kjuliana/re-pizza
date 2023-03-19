@@ -23,7 +23,6 @@ const sendToServer = (form, basket) => {
 
     console.log(orderData);
 
-
 }
 
 const Order = () => {

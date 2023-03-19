@@ -22,7 +22,7 @@ const OrderInfo = ({products}: OrderInfoProps) => {
             {basketItems.map((item) =>
                 <div key={item.shoppingItemId} className={styles.itemWrapper}>
                     {item.name}
-                    <span className={styles.notes}> {formatDough(item.dough)} {formatSize(item.size)} ×{item.count}</span>
+                    <span className={styles.notes}> {item.dough && formatDough(item.dough)} {item.size && formatSize(item.size)} ×{item.count}</span>
                 </div>
             )}
             <div className={styles.itemWrapper}>

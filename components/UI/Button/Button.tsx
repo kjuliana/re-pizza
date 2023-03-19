@@ -5,7 +5,8 @@ interface ButtonProps {
     children: React.ReactNode,
     tag?: 'button' | 'div',
     onClick?(event: React.MouseEvent): void,
-    wide?: boolean
+    wide?: boolean,
+    type?: string
 }
 
 const Button = ({children, tag='button', onClick, wide}: ButtonProps) => {

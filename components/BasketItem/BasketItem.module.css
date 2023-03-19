@@ -6,6 +6,7 @@
     box-shadow: 1px 1px 6px var(--shadow-color);
     padding: 20px;
     box-sizing: border-box;
+    margin: 10px 0;
 }
 
 .information {
@@ -27,10 +28,6 @@
 .price {
     font-weight: 500;
     font-size: 20px;
-}
-
-.name {
-
 }
 
 .notes {

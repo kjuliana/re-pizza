@@ -14,7 +14,7 @@ export const basketSlice = createSlice({
         addBasket(state, action: PayloadAction<IBasketIds>) {
             state[action.payload.id] ??= {};
             state[action.payload.id][action.payload.shoppingItemId] ??= 0;
-             state[action.payload.id][action.payload.shoppingItemId] += 1
+            state[action.payload.id][action.payload.shoppingItemId] += 1
             localStorage.setItem(BASKET_KEY, JSON.stringify(state));
         },
         removeBasket(state, action: PayloadAction<IBasketIds>) {
@@ -26,6 +26,12 @@ export const basketSlice = createSlice({
                 delete state[action.payload.id];
             }
             localStorage.setItem(BASKET_KEY, JSON.stringify(state));
+        },
+        removeAllBasket(state) {
+            for ( let i in state) {
+                delete state[i]
+            }
+            localStorage.removeItem(BASKET_KEY);
         },
         restore(state) {
             const restored = JSON.parse(window.localStorage.getItem(BASKET_KEY) ?? 'null');

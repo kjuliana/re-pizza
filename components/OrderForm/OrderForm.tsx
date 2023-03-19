@@ -4,7 +4,6 @@ import Button from "../UI/Button/Button";
 import RadioGroup from "../UI/RadioGroup/RadioGroup";
 import Input from "../UI/Input/Input";
 
-
 const payVariants = [
     {
         id: 'cash',
@@ -20,7 +19,12 @@ const payVariants = [
     },
 ]
 
-const OrderForm = () => {
+interface OrderFormProps {
+    onSubmit: (obj) => void
+}
+
+const OrderForm = ({onSubmit}: OrderFormProps) => {
+
     const [formState, setFormState] = useState({
         firstName: '',
         phoneNumber: '',
@@ -29,14 +33,20 @@ const OrderForm = () => {
     })
 
 
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        onSubmit(formState);
+    }
+
     return (
-        <form className={styles.root}>
+        <form className={styles.root} onSubmit={handleSubmit}>
             <div className={styles.inputBlock}>
                 <Input
                     id='name'
                     placeholder='Юлиана'
                     name='Имя'
                     value={formState.firstName}
+                    autoComplete='name'
                     onChange={(newValue) => setFormState({...formState, firstName: newValue})}
                 />
                 <Input
@@ -44,6 +54,7 @@ const OrderForm = () => {
                     placeholder='+7(000)000-00-00'
                     name='Телефон'
                     value={formState.phoneNumber}
+                    autoComplete='tel'
                     onChange={(newValue) => setFormState({...formState, phoneNumber: newValue})}
                 />
             </div>
@@ -53,6 +64,7 @@ const OrderForm = () => {
                     placeholder='Ленинградское шоссе, 17, 98'
                     name='Aдрес'
                     value={formState.address}
+                    autoComplete='street-address'
                     onChange={(newValue) => setFormState({...formState, address: newValue})}
                 />
             </div>

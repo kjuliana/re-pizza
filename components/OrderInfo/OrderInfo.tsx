@@ -15,6 +15,7 @@ const OrderInfo = ({products}: OrderInfoProps) => {
     const basketItems = useBasketItems(products);
     const formatDough = useDough();
     const formatSize = useSize();
+    const delivery = totalCost > 1000 ? 0 : 69;
 
     return (
         <div className={styles.infoWrapper}>
@@ -25,9 +26,9 @@ const OrderInfo = ({products}: OrderInfoProps) => {
                 </div>
             )}
             <div className={styles.itemWrapper}>
-                Доставка {totalCost < 1000 ? '69 ₽': '0 ₽'}
+                Доставка {delivery} ₽
             </div>
-            <div className={styles.totalCost}>К оплате {totalCost} ₽</div>
+            <div className={styles.totalCost}>К оплате {totalCost+delivery} ₽</div>
         </div>
     );
 };

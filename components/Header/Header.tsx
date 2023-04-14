@@ -14,9 +14,7 @@ const Header = () => {
                 <span>🍕</span>
                 <span className={styles.wordsLogo}>PIZZA</span>
             </Link>
-            {!isMobile
-                && <Search/>
-            }
+            {!isMobile && <Search/>}
         </div>
     );
 };
